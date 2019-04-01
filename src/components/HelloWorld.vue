@@ -11,6 +11,7 @@
         </p>
         <ap-button
             type="primary"
+            show-loading
             @click="handleClick"
         >
             This is a weui button
