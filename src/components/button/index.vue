@@ -8,12 +8,10 @@
 
 <script>
 export default {
-    name: 'ApButton'
+    name: 'ApButton',
 }
 </script>
 
 <style lang="less">
 @import '../../styles/weui/widget/weui-button/weui-button.less';
 </style>
-
-
