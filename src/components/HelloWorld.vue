@@ -9,7 +9,12 @@
                 rel="noopener"
             >vue-cli documentation</a>.
         </p>
-        <ap-button>This is a weui button</ap-button>
+        <ap-button
+            type="primary"
+            @click="handleClick"
+        >
+            This is a weui button
+        </ap-button>
         <h3>Installed CLI Plugins</h3>
         <ul>
             <li>
@@ -120,7 +125,12 @@ export default {
     components: { ApButton },
     props: {
         msg: String,
-    },
+	},
+	methods: {
+		handleClick() {
+			console.log('clicked')
+		}
+	}
 }
 </script>
 
