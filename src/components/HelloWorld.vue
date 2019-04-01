@@ -70,7 +70,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 h3 {
     margin: 40px 0 0;
 }

@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <button class="weui-btn weui-btn_mini weui-btn_primary">
-            <slot></slot>
-        </button>
-    </div>
+    <button class="weui-btn weui-btn_mini weui-btn_primary">
+        <slot></slot>
+    </button>
 </template>
 
 <script>
