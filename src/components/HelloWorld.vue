@@ -13,21 +13,26 @@
         >
             手机号码
         </vp-input>
+        <vp-switch v-model="isEmpty">
+            开关
+        </vp-switch>
     </div>
 </template>
 
 <script>
 import VpButton from './button'
 import VpInput from './input'
+import VpSwitch from './switch'
 export default {
     name: 'HelloWorld',
-    components: { VpButton, VpInput },
+    components: { VpButton, VpInput, VpSwitch },
     props: {
         msg: String,
     },
     data() {
         return {
             phoneNumber: '',
+            isEmpty: false,
         }
     },
     methods: {
