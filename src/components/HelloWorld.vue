@@ -5,7 +5,7 @@
             type="primary"
             @click="handleClick"
         >
-            提交
+            开始第二个Count
         </vp-button>
         <vp-input
             v-model="phoneNumber"
@@ -24,6 +24,7 @@
             :end-val="88.88"
             :duration="3"
             :decimals="2"
+            :start="startCount"
             class="demo-count"
         />
         <vp-switch v-model="isEmpty">
@@ -47,12 +48,14 @@
 		data() {
 			return {
                 phoneNumber: '',
-                isEmpty: false
+                isEmpty: false,
+                startCount: false
 			}
 		},
 		methods: {
 			handleClick() {
-				console.log('clicked')
+                console.log('clicked')
+                this.startCount = true
 			},
 		},
 	}
