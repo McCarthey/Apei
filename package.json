@@ -18,9 +18,9 @@
 		"test:unit": "vue-cli-service test:unit"
 	},
 	"dependencies": {
-		"core-js": "^2.6.5",
 		"blueimp-md5": "^2.6.0",
-		"countup.js": "^1.8.1",
+		"core-js": "^2.6.5",
+		"countup.js": "^2.0.4",
 		"fastclick": "^1.0.6",
 		"lodash.debounce": "^4.0.8",
 		"lodash.throttle": "^4.1.1",
