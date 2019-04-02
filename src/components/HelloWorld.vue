@@ -10,17 +10,21 @@
 		<vp-countup :start-val="1" :end-val="1388" :duration="2" class="demo-count"></vp-countup>
 		<br />
 		<vp-countup :end-val="88.88" :duration="3" :decimals="2" class="demo-count"></vp-countup>
+        <vp-switch v-model="isEmpty">
+            开关
+        </vp-switch>
 	</div>
 </template>
 
 <script>
 	import VpButton from './button'
 	import VpInput from './input'
+    import VpSwitch from './switch'
 	import VpCountup from './countup'
 
 	export default {
 		name: 'HelloWorld',
-		components: { VpButton, VpInput, VpCountup },
+		components: { VpButton, VpInput, VpCountup, VpSwitch },
 		props: {
 			msg: String,
 		},
