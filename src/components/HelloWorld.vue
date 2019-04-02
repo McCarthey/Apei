@@ -30,6 +30,15 @@
         <vp-switch v-model="isEmpty">
             开关
         </vp-switch>
+        <vp-loading
+            :show="startCount"
+            text="vivo钱包"
+        />
+        <vp-toast
+            :value="true"
+            text="成功啦"
+        />
+        <vp-badge />
     </div>
 </template>
 
@@ -37,11 +46,14 @@
 	import VpButton from './button'
 	import VpInput from './input'
     import VpSwitch from './switch'
-	import VpCountup from './countup'
+    import VpCountup from './countup'
+    import VpLoading from './loading'
+    import VpToast from './toast'
+    import VpBadge from './badge'
 
 	export default {
 		name: 'HelloWorld',
-		components: { VpButton, VpInput, VpCountup, VpSwitch },
+		components: { VpButton, VpInput, VpCountup, VpSwitch, VpLoading, VpToast, VpBadge },
 		props: {
 			msg: String,
 		},
@@ -54,7 +66,6 @@
 		},
 		methods: {
 			handleClick() {
-                console.log('clicked')
                 this.startCount = true
 			},
 		},
