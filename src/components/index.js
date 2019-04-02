@@ -1,7 +1,8 @@
 import Vue from 'vue'
-import ApButton from './button'
+import VpButton from './button'
+
 const Components = {
-    ApButton,
+    VpButton,
 }
 
 Object.keys(Components).forEach(name => {
