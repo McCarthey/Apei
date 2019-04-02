@@ -4,11 +4,11 @@
   "private": false,
   "main": "./dist/a-pei.common.js",
   "files": [
-      "dist/*",
-      "src/*",
-      "public/*",
-      "*.json",
-      "*.js"
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",

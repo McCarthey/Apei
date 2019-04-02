@@ -1,6 +1,6 @@
 <template>
     <button
-        class="weui-btn"
+        class="vbase-btn"
         :class="classes"
         :disabled="disabled"
         :type="actionType"
@@ -8,7 +8,7 @@
     >
         <i
             v-if="showLoading"
-            class="weui-loading"
+            class="vbase-loading"
         />
         <slot>{{ text }}</slot>
     </button>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: 'ApButton',
+    name: 'VpButton',
     props: {
         type: {
             type: String,
@@ -33,13 +33,13 @@ export default {
         classes() {
             return [
                 {
-                    'weui-btn_disabled': !this.plain && this.disabled,
-                    'weui-btn_plain-disabled': this.plain && this.disabled,
-                    'weui-btn_mini': this.mini,
+                    'vbase-btn_disabled': !this.plain && this.disabled,
+                    'vbase-btn_plain-disabled': this.plain && this.disabled,
+                    'vbase-btn_mini': this.mini,
                 },
-                !this.plain ? `weui-btn_${this.type}` : '',
-                this.plain ? `weui-btn_plain-${this.type}` : '',
-                this.showLoading ? `weui-btn_loading` : '',
+                !this.plain ? `vbase-btn_${this.type}` : '',
+                this.plain ? `vbase-btn_plain-${this.type}` : '',
+                this.showLoading ? `vbase-btn_loading` : '',
             ]
         },
     },
@@ -52,6 +52,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/weui/widget/weui-button/weui-button.less';
-@import '../../styles/weui/widget/weui-loading/weui-loading.less';
+@import '../../styles/vbase/widget/vbase-button/vbase-button.less';
+@import '../../styles/vbase/widget/vbase-loading/vbase-loading.less';
 </style>
