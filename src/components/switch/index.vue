@@ -1,5 +1,5 @@
 <template>
-    <div class="vux-x-switch vbase-cell vbase-cell_switch">
+    <div class="vp-x-switch vbase-cell vbase-cell_switch">
         <div class="vbase-cell__bd">
             <label class="vbase-label">
                 <slot />

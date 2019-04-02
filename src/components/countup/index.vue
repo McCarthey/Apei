@@ -3,14 +3,6 @@ import Countup from 'countup.js'
 
 export default {
 	name: 'VpCountup',
-	mounted() {
-		this.$nextTick(() => {
-			this._countup = new Countup(this.$el, this.startVal, this.endVal, this.decimals, this.duration, this.options)
-			if (this.start) {
-				this._countup.start()
-			}
-		})
-	},
 	props: {
 		tag: {
 			type: String,
@@ -45,9 +37,6 @@ export default {
 			},
 		},
 	},
-	render(h) {
-		return h(this.tag, {}, [this.startVal])
-	},
 	watch: {
 		start(val) {
 			if (val) {
@@ -57,6 +46,17 @@ export default {
 		endVal(val) {
 			this._countup.update(val)
 		}
+	},
+	mounted() {
+		this.$nextTick(() => {
+			this._countup = new Countup(this.$el, this.startVal, this.endVal, this.decimals, this.duration, this.options)
+			if (this.start) {
+				this._countup.start()
+			}
+		})
+	},
+	render(h) {
+		return h(this.tag, {}, [this.startVal])
 	}
 }
 </script>

@@ -1,19 +1,35 @@
 <template>
-	<div class="hello">
-		<h1>{{ msg }}</h1>
-		<vp-button type="primary" @click="handleClick">
-			提交
-		</vp-button>
-		<vp-input v-model="phoneNumber" placeholder="请输入手机号码">
-			手机号码
-		</vp-input>
-		<vp-countup :start-val="1" :end-val="1388" :duration="2" class="demo-count"></vp-countup>
-		<br />
-		<vp-countup :end-val="88.88" :duration="3" :decimals="2" class="demo-count"></vp-countup>
+    <div class="hello">
+        <h1>{{ msg }}</h1>
+        <vp-button
+            type="primary"
+            @click="handleClick"
+        >
+            提交
+        </vp-button>
+        <vp-input
+            v-model="phoneNumber"
+            placeholder="请输入手机号码"
+        >
+            手机号码
+        </vp-input>
+        <vp-countup
+            :start-val="1"
+            :end-val="1388"
+            :duration="2"
+            class="demo-count"
+        />
+        <br>
+        <vp-countup
+            :end-val="88.88"
+            :duration="3"
+            :decimals="2"
+            class="demo-count"
+        />
         <vp-switch v-model="isEmpty">
             开关
         </vp-switch>
-	</div>
+    </div>
 </template>
 
 <script>
@@ -30,7 +46,8 @@
 		},
 		data() {
 			return {
-				phoneNumber: '',
+                phoneNumber: '',
+                isEmpty: false
 			}
 		},
 		methods: {
