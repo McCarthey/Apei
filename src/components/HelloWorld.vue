@@ -7,22 +7,34 @@
         >
             提交
         </vp-button>
+        <vp-input
+            v-model="phoneNumber"
+            placeholder="请输入手机号码"
+        >
+            手机号码
+        </vp-input>
     </div>
 </template>
 
 <script>
 import VpButton from './button'
+import VpInput from './input'
 export default {
     name: 'HelloWorld',
-    components: { VpButton },
+    components: { VpButton, VpInput },
     props: {
         msg: String,
-	},
-	methods: {
-		handleClick() {
-			console.log('clicked')
-		}
-	}
+    },
+    data() {
+        return {
+            phoneNumber: '',
+        }
+    },
+    methods: {
+        handleClick() {
+            console.log('clicked')
+        },
+    },
 }
 </script>
 
