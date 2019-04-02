@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: 'ApButton',
+    name: 'VpButton',
     props: {
         type: {
             type: String,

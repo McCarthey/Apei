@@ -1,20 +1,20 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
-        <ap-button
+        <vp-button
             type="primary"
             @click="handleClick"
         >
             提交
-        </ap-button>
+        </vp-button>
     </div>
 </template>
 
 <script>
-import ApButton from './button'
+import VpButton from './button'
 export default {
     name: 'HelloWorld',
-    components: { ApButton },
+    components: { VpButton },
     props: {
         msg: String,
 	},
