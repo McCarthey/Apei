@@ -38,7 +38,9 @@
             :value="true"
             text="成功啦"
         />
-        <vp-badge />
+        <vp-badge
+            text="100"
+        />
     </div>
 </template>
 
