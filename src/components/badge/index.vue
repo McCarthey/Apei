@@ -9,6 +9,17 @@
 </template>
 
 <script>
+/**
+ * vp-badge
+ * @module components/badge
+ * @desc 徽章
+ * @param {string | number} [text] badge展示的值
+ * @param {string | number} [max] 可选参数，大于该值时展示`${max}+`
+ *
+ * @example
+ * <vp-badge text="100" />
+ * <vp-badge text="100" max="99" />
+ */
 export default {
     name: 'VpBadge',
     props: {

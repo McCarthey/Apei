@@ -14,12 +14,12 @@
             手机号码
         </vp-input>
         <vp-countup
+            tag="div"
             :start-val="1"
             :end-val="1388"
             :duration="2"
             class="demo-count"
         />
-        <br>
         <vp-countup
             :end-val="88.88"
             :duration="3"
