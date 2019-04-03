@@ -55,11 +55,14 @@ export default {
             type: Number,
             default: 2,
         },
+        onComplete: {
+            type: Function
+        }
     },
     watch: {
         start(val) {
             if (val) {
-                this._countup.start()
+                this._countup.start(this.onComplete)
             }
         },
         endVal(val) {
@@ -74,7 +77,7 @@ export default {
                 duration: this.duration,
             })
             if (this.start) {
-                this._countup.start()
+                this._countup.start(this.onComplete)
             }
         })
     },

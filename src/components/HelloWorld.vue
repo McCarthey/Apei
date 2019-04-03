@@ -25,6 +25,7 @@
             :duration="3"
             :decimals="2"
             :start="startCount"
+            :on-complete="countDone"
             class="demo-count"
         />
         <vp-switch v-model="isEmpty">
@@ -69,7 +70,10 @@
 		methods: {
 			handleClick() {
                 this.startCount = true
-			},
+            },
+            countDone() {
+                this.startCount = false
+            }
 		},
 	}
 </script>
