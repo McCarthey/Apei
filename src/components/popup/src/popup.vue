@@ -13,7 +13,7 @@
 
 <script>
 	import Popup from './popup'
-	import dom from '../../libs/dom'
+	import dom from '../../../libs/dom'
 
 	export default {
 		name: 'VpPopup',

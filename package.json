@@ -11,8 +11,8 @@
 		"*.js"
 	],
 	"scripts": {
-        "serve": "vue-cli-service serve",
-        "dev": "vue-cli-service serve",
+		"serve": "vue-cli-service serve",
+		"dev": "vue-cli-service serve",
 		"build": "vue-cli-service build",
 		"build-bundle": "vue-cli-service build --target lib --name a-pei ./src/components/index.js",
 		"lint": "vue-cli-service lint",
@@ -25,6 +25,8 @@
 		"fastclick": "^1.0.6",
 		"lodash.debounce": "^4.0.8",
 		"lodash.throttle": "^4.1.1",
+		"validator": "^10.11.0",
+		"vanilla-masker": "^1.2.0",
 		"vue": "^2.6.6",
 		"vue-router": "^3.0.1"
 	},
