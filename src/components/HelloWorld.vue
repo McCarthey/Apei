@@ -31,17 +31,22 @@
         <vp-switch v-model="isEmpty">
             开关
         </vp-switch>
-        <vp-loading
+        <!-- <vp-loading
             :show="startCount"
             text="vivo钱包"
         />
         <vp-toast
             :value="true"
             text="成功啦"
-        />
+        /> -->
         <vp-badge
             text="100"
         />
+        <vp-popup v-model="startCount" position="bottom">
+            <div class="position-vertical-demo">
+                I'm on bottom.
+            </div>
+        </vp-popup>
     </div>
 </template>
 
@@ -53,10 +58,11 @@
     import VpLoading from './loading'
     import VpToast from './toast'
     import VpBadge from './badge'
+    import VpPopup from './popup'
 
 	export default {
 		name: 'HelloWorld',
-		components: { VpButton, VpInput, VpCountup, VpSwitch, VpLoading, VpToast, VpBadge },
+		components: { VpButton, VpInput, VpCountup, VpSwitch, VpLoading, VpToast, VpBadge, VpPopup },
 		props: {
 			msg: String,
 		},
@@ -97,5 +103,11 @@
         font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
         font-size: 6em;
         color: #04BE02;
+    }
+    .position-vertical-demo {
+        background-color: #ffe26d;
+        color: #000;
+        text-align: center;
+        padding: 15px;
     }
 </style>
