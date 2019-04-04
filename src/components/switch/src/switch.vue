@@ -40,5 +40,5 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/vbase/widget/vbase-cell/vbase-switch.less';
+@import '../../../styles/vbase/widget/vbase-cell/vbase-switch.less';
 </style>

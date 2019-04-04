@@ -1,11 +1,10 @@
-import Vue from 'vue'
-import VpButton from './button'
-import VpInput from './input'
-import VpSwitch from './switch'
-import VpCountup from './countup'
-import VpLoading from './loading'
-import VpToast from './toast'
-import VpBadge from './badge'
+import VpButton from './button/index.js'
+import VpInput from './input/index.js'
+import VpSwitch from './switch/index.js'
+import VpCountup from './countup/index.js'
+import VpLoading from './loading/index.js'
+import VpToast from './toast/index.js'
+import VpBadge from './badge//index.js'
 
 const Components = {
     VpButton,
@@ -14,11 +13,17 @@ const Components = {
     VpCountup,
     VpLoading,
     VpToast,
-    VpBadge
+    VpBadge,
 }
 
-Object.keys(Components).forEach(name => {
-    Vue.component(name, Components[name])
-})
+const install = function(Vue) {
+    Object.keys(Components).forEach(name => {
+        Vue.component(name, Components[name])
+    })
+}
 
-export default Components
+if (typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue)
+}
+
+export default { install, ...Components }

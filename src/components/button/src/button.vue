@@ -52,6 +52,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/vbase/widget/vbase-button/vbase-button.less';
-@import '../../styles/vbase/widget/vbase-loading/vbase-loading.less';
+@import '../../../styles/vbase/widget/vbase-button/vbase-button.less';
+@import '../../../styles/vbase/widget/vbase-loading/vbase-loading.less';
 </style>

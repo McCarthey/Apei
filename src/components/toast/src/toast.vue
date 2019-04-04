@@ -35,7 +35,7 @@
 </template>
 
 <script>
-	import SafariFixIssue from '../../mixins/safari-fix'
+	import SafariFixIssue from '../../../mixins/safari-fix'
 
 	export default {
 		name: 'VpToast',
@@ -126,11 +126,11 @@
 </script>
 
 <style lang="less">
-    @import '../../styles/variable.less';
-	@import '../../styles/transition.less';
-	@import '../../styles/vbase/widget/vbase-tips/vbase-mask.less';
-	@import '../../styles/vbase/icon/vbase-icon_font';
-	@import '../../styles/vbase/widget/vbase-tips/vbase-toast.less';
+    @import '../../../styles/variable.less';
+	@import '../../../styles/transition.less';
+	@import '../../../styles/vbase/widget/vbase-tips/vbase-mask.less';
+	@import '../../../styles/vbase/icon/vbase-icon_font';
+	@import '../../../styles/vbase/widget/vbase-tips/vbase-toast.less';
 
 	.vbase-toast.vp-toast-top {
 		top: @toast-position-top-offset;

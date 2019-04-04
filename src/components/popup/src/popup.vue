@@ -1,9 +1,14 @@
 <template>
-	<transition :name="`vp-popup-animate-${position}`">
-		<div v-show="show && !initialShow" :style="styles" class="vp-popup-dialog" :class="[`vp-popup-${position}`, show ? 'vp-popup-show' : '']">
-			<slot v-if="shouldRenderBody"></slot>
-		</div>
-	</transition>
+    <transition :name="`vp-popup-animate-${position}`">
+        <div
+            v-show="show && !initialShow"
+            :style="styles"
+            class="vp-popup-dialog"
+            :class="[`vp-popup-${position}`, show ? 'vp-popup-show' : '']"
+        >
+            <slot v-if="shouldRenderBody" />
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -11,7 +16,7 @@
 	import dom from '../../libs/dom'
 
 	export default {
-		name: 'popup',
+		name: 'Popup',
 		props: {
 			value: Boolean,
 			height: {
@@ -48,80 +53,6 @@
 			shouldScrollTopOnShow: {
 				type: Boolean,
 				default: false,
-			},
-		},
-		created() {
-			// get global layout config
-			if (this.$vp && this.$vp.config && this.$vp.config.$layout === 'VIEW_BOX') {
-				this.layout = 'VIEW_BOX'
-			}
-		},
-		mounted() {
-			this.$overflowScrollingList = document.querySelectorAll('.vp-fix-safari-overflow-scrolling')
-			this.$nextTick(() => {
-				const _this = this
-				this.popup = new Popup({
-					showMask: _this.showMask,
-					container: _this.$el,
-					hideOnBlur: _this.hideOnBlur,
-					onOpen() {
-						_this.fixSafariOverflowScrolling('auto')
-						_this.show = true
-					},
-					onClose() {
-						_this.show = false
-						if (window.__$vpPopups && Object.keys(window.__$vpPopups).length > 1) return
-						if (document.querySelector('.vp-popup-dialog.vp-popup-mask-disabled')) return
-						setTimeout(() => {
-							_this.fixSafariOverflowScrolling('touch')
-						}, 300)
-					},
-				})
-				if (this.value) {
-					this.popup.show()
-				}
-				this.initialShow = false
-			})
-		},
-		deactivated() {
-			if (this.hideOnDeactivated) {
-				this.show = false
-			}
-			this.removeModalClassName()
-		},
-		methods: {
-			/**
-			 * https://benfrain.com/z-index-stacking-contexts-experimental-css-and-ios-safari/
-			 */
-			fixSafariOverflowScrolling(type) {
-				if (!this.$overflowScrollingList.length) return
-				for (let i = 0; i < this.$overflowScrollingList.length; i++) {
-					this.$overflowScrollingList[i].style.webkitOverflowScrolling = type
-				}
-			},
-			removeModalClassName() {
-				this.layout === 'VIEW_BOX' && dom.removeClass(document.body, 'vp-modal-open')
-			},
-			doShow() {
-				this.popup && this.popup.show()
-				this.$emit('on-show')
-				this.fixSafariOverflowScrolling('auto')
-				this.layout === 'VIEW_BOX' && dom.addClass(document.body, 'vp-modal-open')
-				if (!this.hasFirstShow) {
-					this.$emit('on-first-show')
-					this.hasFirstShow = true
-				}
-			},
-			scrollTop() {
-				this.$nextTick(() => {
-					this.$el.scrollTop = 0
-					const box = this.$el.querySelectorAll('.vp-scrollable')
-					if (box.length) {
-						for (let i = 0; i < box.length; i++) {
-							box[i].scrollTop = 0
-						}
-					}
-				})
 			},
 		},
 		data() {
@@ -188,17 +119,91 @@
 				}
 			},
 		},
+		created() {
+			// get global layout config
+			if (this.$vp && this.$vp.config && this.$vp.config.$layout === 'VIEW_BOX') {
+				this.layout = 'VIEW_BOX'
+			}
+		},
+		mounted() {
+			this.$overflowScrollingList = document.querySelectorAll('.vp-fix-safari-overflow-scrolling')
+			this.$nextTick(() => {
+				const _this = this
+				this.popup = new Popup({
+					showMask: _this.showMask,
+					container: _this.$el,
+					hideOnBlur: _this.hideOnBlur,
+					onOpen() {
+						_this.fixSafariOverflowScrolling('auto')
+						_this.show = true
+					},
+					onClose() {
+						_this.show = false
+						if (window.__$vpPopups && Object.keys(window.__$vpPopups).length > 1) return
+						if (document.querySelector('.vp-popup-dialog.vp-popup-mask-disabled')) return
+						setTimeout(() => {
+							_this.fixSafariOverflowScrolling('touch')
+						}, 300)
+					},
+				})
+				if (this.value) {
+					this.popup.show()
+				}
+				this.initialShow = false
+			})
+		},
+		deactivated() {
+			if (this.hideOnDeactivated) {
+				this.show = false
+			}
+			this.removeModalClassName()
+		},
 		beforeDestroy() {
 			this.popup && this.popup.destroy()
 			this.fixSafariOverflowScrolling('touch')
 			this.removeModalClassName()
 		},
+		methods: {
+			/**
+			 * https://benfrain.com/z-index-stacking-contexts-experimental-css-and-ios-safari/
+			 */
+			fixSafariOverflowScrolling(type) {
+				if (!this.$overflowScrollingList.length) return
+				for (let i = 0; i < this.$overflowScrollingList.length; i++) {
+					this.$overflowScrollingList[i].style.webkitOverflowScrolling = type
+				}
+			},
+			removeModalClassName() {
+				this.layout === 'VIEW_BOX' && dom.removeClass(document.body, 'vp-modal-open')
+			},
+			doShow() {
+				this.popup && this.popup.show()
+				this.$emit('on-show')
+				this.fixSafariOverflowScrolling('auto')
+				this.layout === 'VIEW_BOX' && dom.addClass(document.body, 'vp-modal-open')
+				if (!this.hasFirstShow) {
+					this.$emit('on-first-show')
+					this.hasFirstShow = true
+				}
+			},
+			scrollTop() {
+				this.$nextTick(() => {
+					this.$el.scrollTop = 0
+					const box = this.$el.querySelectorAll('.vp-scrollable')
+					if (box.length) {
+						for (let i = 0; i < box.length; i++) {
+							box[i].scrollTop = 0
+						}
+					}
+				})
+			},
+		},
 	}
 </script>
 
 <style lang="less">
-	@import '../../styles/variable.less';
-	@import '../../styles/vp-modal.css';
+	@import '../../../styles/variable.less';
+	@import '../../../styles/vp-modal.css';
 
 	.vp-popup-dialog {
 		position: fixed;

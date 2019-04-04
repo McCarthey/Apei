@@ -49,10 +49,10 @@
 </script>
 
 <style lang="less">
-    @import '../../styles/variable.less';
-	@import '../../styles/vbase/widget/vbase-tips/vbase-mask.less';
-	@import '../../styles/vbase/widget/vbase-tips/vbase-toast.less';
-	@import '../../styles/vbase/widget/vbase-loading/vbase-loading.less';
+    @import '../../../styles/variable.less';
+	@import '../../../styles/vbase/widget/vbase-tips/vbase-mask.less';
+	@import '../../../styles/vbase/widget/vbase-tips/vbase-toast.less';
+	@import '../../../styles/vbase/widget/vbase-loading/vbase-loading.less';
 
 	.vp-loading .vbase-toast {
 		z-index: @loading-z-index;

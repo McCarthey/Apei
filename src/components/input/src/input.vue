@@ -53,8 +53,8 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/vbase/widget/vbase-cell/vbase-form/vbase-form_common.less';
-@import '../../styles/vbase/widget/vbase-cell/vbase-cell_global.less';
+@import '../../../styles/vbase/widget/vbase-cell/vbase-form/vbase-form_common.less';
+@import '../../../styles/vbase/widget/vbase-cell/vbase-cell_global.less';
 </style>
 
 
