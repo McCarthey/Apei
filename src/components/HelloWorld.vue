@@ -40,7 +40,8 @@
             text="成功啦"
         />
         <vp-badge
-            text="100"
+            text="10000"
+            max="99"
         />
         <vp-popup
             v-model="startCount"
