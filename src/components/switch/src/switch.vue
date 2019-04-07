@@ -2,10 +2,12 @@
     <div class="vp-switch vbase-cell vbase-cell_switch">
         <div class="vbase-cell__bd">
             <label
+                v-if="title"
                 class="vbase-label"
                 :style="labelStyle"
                 :class="labelClass"
             >{{ title }}</label>
+            <slot v-else />
             <vp-inline-desc v-if="inlineDesc">
                 {{ inlineDesc }}
             </vp-inline-desc>

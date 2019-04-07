@@ -29,7 +29,7 @@
             >
                 手机号码
             </vp-input>
-            <vp-input
+            <!-- <vp-input
                 v-model="phoneNumber"
                 title="手机号码格式化"
                 mask="9999 999 9999"
@@ -46,10 +46,9 @@
                 is-type="china-mobile"
             >
                 手机号码
-            </vp-input>
+            </vp-input> -->
             <vp-switch
                 v-model="isEmpty"
-                title="title"
             >
                 手机号码
             </vp-switch>
@@ -69,7 +68,6 @@
             :on-complete="countDone"
             class="demo-count"
         />
-        <vp-inline-switch v-model="isEmpty" />
         <vp-loading
             :show="startCount"
             text="vivo钱包"
@@ -82,6 +80,7 @@
             text="10000"
             max="99"
         />
+        <vp-inline-switch v-model="isEmpty" />
         <vp-popup
             v-model="startCount"
             position="bottom"
