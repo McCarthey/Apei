@@ -1,0 +1,6 @@
+{
+    "VpBadge": "./src/components/badge",
+    "VpButton": "./src/components/button",
+    "VpCountup": "./src/components/countup",
+    "VpInput": "./src/components/input"
+}

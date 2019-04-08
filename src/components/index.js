@@ -4,7 +4,7 @@ import VpSwitch from './switch/index.js'
 import VpCountup from './countup/index.js'
 import VpLoading from './loading/index.js'
 import VpToast from './toast/index.js'
-import VpBadge from './badge//index.js'
+import VpBadge from './badge/index.js'
 
 const Components = {
     VpButton,
