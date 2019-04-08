@@ -40,7 +40,6 @@
 		props: {
 			title: {
 				type: String,
-				required: true,
 			},
 			disabled: Boolean,
 			value: {

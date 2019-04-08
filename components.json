@@ -1,4 +1,5 @@
 {
+    "index": "./src/components/index.js",
     "VpBadge": "./src/components/badge",
     "VpButton": "./src/components/button",
     "VpCountup": "./src/components/countup",

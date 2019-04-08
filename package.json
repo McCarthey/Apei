@@ -1,10 +1,10 @@
 {
 	"name": "a-pei",
-	"version": "0.1.7",
+	"version": "0.2.2",
 	"private": false,
-	"main": "./dist/a-pei.common.js",
+	"main": "./lib/a-pei.common.js",
 	"files": [
-		"dist/*",
+		"lib/*",
 		"src/*",
 		"public/*",
 		"*.json",
@@ -14,7 +14,7 @@
 		"serve": "vue-cli-service serve",
 		"dev": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"build-bundle": "vue-cli-service build --target lib --name a-pei ./src/components/index.js",
+		"build-bundle": "vue-cli-service build --target lib --dest lib --name a-pei ./src/components/index.js",
 		"lint": "vue-cli-service lint",
 		"test:unit": "vue-cli-service test:unit"
 	},
@@ -22,6 +22,7 @@
 		"blueimp-md5": "^2.6.0",
 		"core-js": "^2.6.5",
 		"countup.js": "^2.0.4",
+		"extract-text-webpack-plugin": "4.0.0-beta.0",
 		"fastclick": "^1.0.6",
 		"lodash.debounce": "^4.0.8",
 		"lodash.throttle": "^4.1.1",
@@ -43,6 +44,7 @@
 		"eslint-plugin-vue": "^5.0.0",
 		"less": "^3.9.0",
 		"less-loader": "^4.1.0",
+		"mini-css-extract-plugin": "^0.5.0",
 		"vue-template-compiler": "^2.5.21"
 	},
 	"eslintConfig": {
