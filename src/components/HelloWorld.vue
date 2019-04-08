@@ -7,12 +7,52 @@
         >
             开始第二个Count
         </vp-button>
-        <vp-input
-            v-model="phoneNumber"
-            placeholder="请输入手机号码"
-        >
-            手机号码
-        </vp-input>
+        <vp-group title="使用icon代替title">
+            <vp-input
+                title="发送验证码"
+                class="vbase-vcode"
+            >
+                <vp-button
+                    slot="right"
+                    type="primary"
+                    mini
+                >
+                    发送验证码
+                </vp-button>
+            </vp-input>
+            <vp-input
+                v-model="phoneNumber"
+                title="手机号码格式化"
+                mask="9999 999 9999"
+                :max="13"
+                is-type="china-mobile"
+            >
+                手机号码
+            </vp-input>
+            <!-- <vp-input
+                v-model="phoneNumber"
+                title="手机号码格式化"
+                mask="9999 999 9999"
+                :max="13"
+                is-type="china-mobile"
+            >
+                手机号码
+            </vp-input>
+            <vp-input
+                v-model="phoneNumber"
+                title="手机号码格式化"
+                mask="9999 999 9999"
+                :max="13"
+                is-type="china-mobile"
+            >
+                手机号码
+            </vp-input> -->
+            <vp-switch
+                v-model="isEmpty"
+            >
+                手机号码
+            </vp-switch>
+        </vp-group>
         <vp-countup
             tag="div"
             :start-val="1"
@@ -28,9 +68,6 @@
             :on-complete="countDone"
             class="demo-count"
         />
-        <vp-switch v-model="isEmpty">
-            开关
-        </vp-switch>
         <vp-loading
             :show="startCount"
             text="vivo钱包"
@@ -40,8 +77,10 @@
             text="成功啦"
         />
         <vp-badge
-            text="100"
+            text="10000"
+            max="99"
         />
+        <vp-inline-switch v-model="isEmpty" />
         <vp-popup
             v-model="startCount"
             position="bottom"
@@ -57,15 +96,17 @@
 	import VpButton from './button'
 	import VpInput from './input'
     import VpSwitch from './switch'
+    import VpInlineSwitch from './inline-switch'
     import VpCountup from './countup'
     import VpLoading from './loading'
     import VpToast from './toast'
     import VpBadge from './badge'
-    // import VpPopup from './popup'
+    import VpPopup from './popup'
+    import VpGroup from './group'
 
 	export default {
 		name: 'HelloWorld',
-		components: { VpButton, VpInput, VpCountup, VpSwitch, VpLoading, VpToast, VpBadge },
+		components: { VpButton, VpInput, VpCountup, VpInlineSwitch, VpLoading, VpToast, VpBadge, VpPopup, VpGroup, VpSwitch },
 		props: {
 			msg: String,
 		},

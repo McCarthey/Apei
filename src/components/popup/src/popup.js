@@ -1,5 +1,3 @@
-// const passiveSupported = require('../../libs/passive_supported')
-const passiveSupported = false
 const isBrowser = typeof window === 'object'
 
 // not a good way but works well
@@ -67,9 +65,7 @@ popupDialog.prototype.onClickMask = function () {
 popupDialog.prototype._bindEvents = function () {
 	if (this.params.hideOnBlur) {
 		this.mask.addEventListener('click', this.onClickMask.bind(this), false)
-		this.mask.addEventListener('touchmove', e => e.preventDefault(), passiveSupported ? {
-			passive: false
-		} : false)
+		this.mask.addEventListener('touchmove', e => e.preventDefault(), false)
 	}
 }
 
