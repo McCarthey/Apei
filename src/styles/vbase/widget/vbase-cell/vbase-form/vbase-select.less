@@ -1,0 +1,85 @@
+/*
+* Tencent is pleased to support the open source community by making vbase available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../../base/fn";
+
+.vbase-cell_select {
+    padding: 0;
+    .vbase-select {
+        padding-right: 30px;
+    }
+    .vbase-cell__bd{
+        &:after{
+            content: " ";
+            .setArrow(right, 6px, #C8C8CD, 2px);
+
+            position: absolute;
+            top: 50%;
+            right: @vbaseCellGapH;
+            margin-top: -4px;
+        }
+    }
+}
+
+.vbase-select {
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    width: 100%;
+    font-size: inherit;
+    height: @vbaseCellHeight;
+    line-height: @vbaseCellHeight;
+    position: relative;
+    z-index: 1;
+    padding-left: @vbaseCellGapH;
+}
+
+.vbase-cell_select-before {
+    padding-right:@vbaseCellGapH;
+    .vbase-select{
+        width:@vbaseCellLabelWidth;
+        box-sizing: border-box;
+    }
+    .vbase-cell__hd {
+        position:relative;
+        &:after {
+            .setRightLine(@vbaseCellBorderColor);
+        }
+        &:before{
+            content: " ";
+            .setArrow(right, 6px, #C8C8CD, 2px);
+
+            position: absolute;
+            top: 50%;
+            right: @vbaseCellGapH;
+            margin-top: -4px;
+        }
+    }
+    .vbase-cell__bd {
+        padding-left:@vbaseCellGapH;
+        &:after{
+            display:none;
+        }
+    }
+}
+
+.vbase-cell_select-after {
+    padding-left:@vbaseCellGapH;
+    .vbase-select {
+        padding-left:0;
+    }
+}

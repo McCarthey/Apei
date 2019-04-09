@@ -1,0 +1,7 @@
+{
+    "index": "./src/index.js",
+    "badge": "./src/components/badge",
+    "button": "./src/components/button",
+    "countup": "./src/components/countup",
+    "input": "./src/components/input"
+}
