@@ -1,9 +1,10 @@
 {
   "name": "a-pei",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "A Vue.js project",
   "author": "Randall <randall@duomai.com>",
   "main": "lib/index.js",
+  "files": ["/lib/"],
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
