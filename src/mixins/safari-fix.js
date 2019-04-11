@@ -1,6 +1,6 @@
 export default {
     mounted() {
-        this.$overflowScrollingList = document.querySelectorAll('.vp-fix-safari-overflow-scrolling')
+        this.$overflowScrollingList = document.querySelectorAll('.vvpay-fix-safari-overflow-scrolling')
     },
     methods: {
         fixSafariOverflowScrolling(type) {

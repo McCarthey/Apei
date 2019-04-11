@@ -1,0 +1,78 @@
+@import "../../../base/fn";
+
+.vbase-cell_select {
+	padding: 0;
+
+	.vbase-select {
+		padding-right: 30px;
+	}
+
+	.vbase-cell__bd {
+		&:after {
+			content: " ";
+			.setArrow(right, 6px, #C8C8CD, 2px);
+
+			position  : absolute;
+			top       : 50%;
+			right     : @vbaseCellGapH;
+			margin-top: -4px;
+		}
+	}
+}
+
+.vbase-select {
+	-webkit-appearance: none;
+	border            : 0;
+	outline           : 0;
+	background-color  : transparent;
+	width             : 100%;
+	font-size         : inherit;
+	height            : @vbaseCellHeight;
+	line-height       : @vbaseCellHeight;
+	position          : relative;
+	z-index           : 1;
+	padding-left      : @vbaseCellGapH;
+}
+
+.vbase-cell_select-before {
+	padding-right: @vbaseCellGapH;
+
+	.vbase-select {
+		width     : @vbaseCellLabelWidth;
+		box-sizing: border-box;
+	}
+
+	.vbase-cell__hd {
+		position: relative;
+
+		&:after {
+			.setRightLine(@vbaseCellBorderColor);
+		}
+
+		&:before {
+			content: " ";
+			.setArrow(right, 6px, #C8C8CD, 2px);
+
+			position  : absolute;
+			top       : 50%;
+			right     : @vbaseCellGapH;
+			margin-top: -4px;
+		}
+	}
+
+	.vbase-cell__bd {
+		padding-left: @vbaseCellGapH;
+
+		&:after {
+			display: none;
+		}
+	}
+}
+
+.vbase-cell_select-after {
+	padding-left: @vbaseCellGapH;
+
+	.vbase-select {
+		padding-left: 0;
+	}
+}

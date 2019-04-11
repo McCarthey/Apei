@@ -1,0 +1,44 @@
+@import "../../base/fn";
+
+.vbase-loadmore {
+	width      : 65%;
+	margin     : 1.5em auto;
+	line-height: 1.6em;
+	font-size  : 14px;
+	text-align : center;
+}
+
+.vbase-loadmore__tips {
+	display       : inline-block;
+	vertical-align: middle;
+}
+
+.vbase-loadmore_line {
+	border-top: 1px solid @vbaseLineColorLight;
+	margin-top: 2.4em;
+
+	.vbase-loadmore__tips {
+		position: relative;
+		top     : -.9em;
+		padding : 0 .55em;
+		color   : @vbaseTextColorGray;
+	}
+}
+
+.vbase-loadmore_dot {
+	.vbase-loadmore__tips {
+		padding: 0 .16em;
+
+		&:before {
+			content         : " ";
+			width           : 4px;
+			height          : 4px;
+			border-radius   : 50%;
+			background-color: @vbaseLineColorLight;
+			display         : inline-block;
+			position        : relative;
+			vertical-align  : 0;
+			top             : -.16em;
+		}
+	}
+}

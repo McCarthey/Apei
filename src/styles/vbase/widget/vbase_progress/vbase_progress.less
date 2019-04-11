@@ -1,0 +1,24 @@
+@import "../../base/fn";
+
+.vbase-progress {
+	display    : flex;
+	align-items: center;
+}
+
+.vbase-progress__bar {
+	background-color: @vbaseProgressBg;
+	height          : @vbaseProgressHeight;
+	flex            : 1;
+}
+
+.vbase-progress__inner-bar {
+	width           : 0;
+	height          : 100%;
+	background-color: @vbaseProgressColor;
+}
+
+.vbase-progress__opr {
+	display    : block;
+	margin-left: 15px;
+	font-size  : 0;
+}

@@ -11,17 +11,17 @@ doc: |
 
   ``` html
   <style lang="less">
-  @import '~vp/src/styles/close.less';
+  @import '~vvpay/src/styles/close.less';
   </style>
   ```
 
   可用类名：
 
-  - vp-close
+  - vvpay-close
 
 
   ``` html
-  <span class="vp-close"></span>
+  <span class="vvpay-close"></span>
   ```
 
   可以参考 `XDialog` 演示。
@@ -30,5 +30,5 @@ doc: |
 
 
   ``` html
-  <span class="vp-close" style="color:red;"></span>
+  <span class="vvpay-close" style="color:red;"></span>
   ```

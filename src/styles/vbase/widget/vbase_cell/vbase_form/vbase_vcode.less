@@ -1,0 +1,37 @@
+@import "../../../base/fn";
+
+.vbase-cell_vcode {
+	padding-top   : 0;
+	padding-right : 0;
+	padding-bottom: 0;
+}
+
+.vbase-vcode-img {
+	margin-left   : 5px;
+	height        : @vbaseCellHeight;
+	vertical-align: middle;
+}
+
+.vbase-vcode-btn {
+	display       : inline-block;
+	height        : @vbaseCellHeight;
+	margin-left   : 5px;
+	padding       : 0 0.6em 0 0.7em;
+	border-left   : 1px solid @vbaseLineColorLight;
+	line-height   : @vbaseCellHeight;
+	vertical-align: middle;
+	font-size     : @vbaseCellFontSize;
+	color         : @vbaseDialogLinkColor;
+
+	button& {
+		background-color: transparent;
+		border-top      : 0;
+		border-right    : 0;
+		border-bottom   : 0;
+		outline         : 0;
+	}
+
+	&:active {
+		color: desaturate(@vbaseDialogLinkColor, 30%);
+	}
+}
