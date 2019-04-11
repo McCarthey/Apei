@@ -7,32 +7,32 @@ import VpToast from "./components/toast/index.js";
 import VpBadge from "./components/badge/index.js";
 
 const Components = {
-  VpButton,
-  VpInput,
-  VpSwitch,
-  VpCountup,
-  VpLoading,
-  VpToast,
-  VpBadge
+    VpButton,
+    VpInput,
+    VpSwitch,
+    VpCountup,
+    VpLoading,
+    VpToast,
+    VpBadge
 };
 
 const install = function(Vue) {
-  Object.keys(Components).forEach(name => {
-    Vue.component(name, Components[name]);
-  });
+    Object.keys(Components).forEach(name => {
+        Vue.component(name, Components[name]);
+    });
 };
 
 if (typeof window !== "undefined" && window.Vue) {
-  install(window.Vue);
+    install(window.Vue);
 }
 
 export default {
-  install,
-  VpButton,
-  VpInput,
-  VpSwitch,
-  VpCountup,
-  VpLoading,
-  VpToast,
-  VpBadge
+    install,
+    VpButton,
+    VpInput,
+    VpSwitch,
+    VpCountup,
+    VpLoading,
+    VpToast,
+    VpBadge
 };

@@ -3,9 +3,9 @@
 </template>
 
 <script>
-	export default {
-		name: 'VpInlineDesc',
-	}
+export default {
+    name: 'VpInlineDesc',
+}
 </script>
 
 <style>

@@ -25,27 +25,27 @@
 </template>
 
 <script>
-	export default {
-		name: 'VpLoading',
-		model: {
-			prop: 'show',
-			event: 'change',
-		},
-		props: {
-			show: Boolean,
-			text: String,
-			position: String,
-			transition: {
-				type: String,
-				default: 'vp-mask',
-			},
-		},
-		watch: {
-			show(val) {
-				this.$emit('update:show', val)
-			},
-		},
-	}
+export default {
+    name: 'VpLoading',
+    model: {
+        prop: 'show',
+        event: 'change',
+    },
+    props: {
+        show: Boolean,
+        text: String,
+        position: String,
+        transition: {
+            type: String,
+            default: 'vp-mask',
+        },
+    },
+    watch: {
+        show(val) {
+            this.$emit('update:show', val)
+        },
+    },
+}
 </script>
 
 <style lang="less">

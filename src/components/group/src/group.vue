@@ -41,24 +41,24 @@
 </template>
 
 <script>
-	import cleanStyle from '../../../libs/clean-style'
+import cleanStyle from '../../../libs/clean-style'
 
-	export default {
-		name: 'VpGroup',
-		props: {
-			title: String,
-			titleColor: String,
-			labelWidth: String,
-			labelAlign: String,
-			labelMarginRight: String,
-			gutter: [String, Number],
-			footerTitle: String,
-			footerTitleColor: String,
-		},
-		methods: {
-			cleanStyle,
-		},
-	}
+export default {
+    name: 'VpGroup',
+    props: {
+        title: String,
+        titleColor: String,
+        labelWidth: String,
+        labelAlign: String,
+        labelMarginRight: String,
+        gutter: [String, Number],
+        footerTitle: String,
+        footerTitleColor: String,
+    },
+    methods: {
+        cleanStyle,
+    },
+}
 </script>
 
 <style lang="less">

@@ -35,94 +35,94 @@
 </template>
 
 <script>
-	import SafariFixIssue from '../../../mixins/safari-fix'
+import SafariFixIssue from '../../../mixins/safari-fix'
 
-	export default {
-		name: 'VpToast',
-		mixins: [SafariFixIssue],
-		props: {
-			value: Boolean,
-			time: {
-				type: Number,
-				default: 2000,
-			},
-			type: {
-				type: String,
-				default: 'success',
-			},
-			transition: String,
-			width: {
-				type: String,
-				default: '7.6em',
-			},
-			isShowMask: {
-				type: Boolean,
-				default: false,
-			},
-			text: String,
-			position: String,
-		},
-		data() {
-			return {
-				show: false,
-			}
-		},
-		computed: {
-			currentTransition() {
-				if (this.transition) {
-					return this.transition
-				}
-				if (this.position === 'top') {
-					return 'vp-slide-from-top'
-				}
-				if (this.position === 'bottom') {
-					return 'vp-slide-from-bottom'
-				}
-				return 'vp-fade'
-			},
-			toastClass() {
-				return {
-					'vbase-toast_forbidden': this.type === 'warn',
-					'vbase-toast_cancel': this.type === 'cancel',
-					'vbase-toast_success': this.type === 'success',
-					'vbase-toast_text': this.type === 'text',
-					'vp-toast-top': this.position === 'top',
-					'vp-toast-bottom': this.position === 'bottom',
-					'vp-toast-middle': this.position === 'middle',
-				}
-			},
-			style() {
-				if (this.type === 'text' && this.width === 'auto') {
-					return { padding: '10px' }
-				}
-			},
-		},
-		watch: {
-			show(val) {
-				if (val) {
-					this.$emit('input', true)
-					this.$emit('on-show')
-					this.fixSafariOverflowScrolling('auto')
+export default {
+    name: 'VpToast',
+    mixins: [SafariFixIssue],
+    props: {
+        value: Boolean,
+        time: {
+            type: Number,
+            default: 2000,
+        },
+        type: {
+            type: String,
+            default: 'success',
+        },
+        transition: String,
+        width: {
+            type: String,
+            default: '7.6em',
+        },
+        isShowMask: {
+            type: Boolean,
+            default: false,
+        },
+        text: String,
+        position: String,
+    },
+    data() {
+        return {
+            show: false,
+        }
+    },
+    computed: {
+        currentTransition() {
+            if (this.transition) {
+                return this.transition
+            }
+            if (this.position === 'top') {
+                return 'vp-slide-from-top'
+            }
+            if (this.position === 'bottom') {
+                return 'vp-slide-from-bottom'
+            }
+            return 'vp-fade'
+        },
+        toastClass() {
+            return {
+                'vbase-toast_forbidden': this.type === 'warn',
+                'vbase-toast_cancel': this.type === 'cancel',
+                'vbase-toast_success': this.type === 'success',
+                'vbase-toast_text': this.type === 'text',
+                'vp-toast-top': this.position === 'top',
+                'vp-toast-bottom': this.position === 'bottom',
+                'vp-toast-middle': this.position === 'middle',
+            }
+        },
+        style() {
+            if (this.type === 'text' && this.width === 'auto') {
+                return { padding: '10px' }
+            }
+        },
+    },
+    watch: {
+        show(val) {
+            if (val) {
+                this.$emit('input', true)
+                this.$emit('on-show')
+                this.fixSafariOverflowScrolling('auto')
 
-					clearTimeout(this.timeout)
-					this.timeout = setTimeout(() => {
-						this.show = false
-						this.$emit('input', false)
-						this.$emit('on-hide')
-						this.fixSafariOverflowScrolling('touch')
-					}, this.time)
-				}
-			},
-			value(val) {
-				this.show = val
-			},
-		},
-		created() {
-			if (this.value) {
-				this.show = true
-			}
-		},
-	}
+                clearTimeout(this.timeout)
+                this.timeout = setTimeout(() => {
+                    this.show = false
+                    this.$emit('input', false)
+                    this.$emit('on-hide')
+                    this.fixSafariOverflowScrolling('touch')
+                }, this.time)
+            }
+        },
+        value(val) {
+            this.show = val
+        },
+    },
+    created() {
+        if (this.value) {
+            this.show = true
+        }
+    },
+}
 </script>
 
 <style lang="less">

@@ -93,39 +93,39 @@
 </template>
 
 <script>
-	import VpButton from './button'
-	import VpInput from './input'
-    import VpSwitch from './switch'
-    import VpInlineSwitch from './inline-switch'
-    import VpCountup from './countup'
-    import VpLoading from './loading'
-    import VpToast from './toast'
-    import VpBadge from './badge'
-    import VpPopup from './popup'
-    import VpGroup from './group'
+import VpButton from './button'
+import VpInput from './input'
+import VpSwitch from './switch'
+import VpInlineSwitch from './inline-switch'
+import VpCountup from './countup'
+import VpLoading from './loading'
+import VpToast from './toast'
+import VpBadge from './badge'
+import VpPopup from './popup'
+import VpGroup from './group'
 
-	export default {
-		name: 'HelloWorld',
-		components: { VpButton, VpInput, VpCountup, VpInlineSwitch, VpLoading, VpToast, VpBadge, VpPopup, VpGroup, VpSwitch },
-		props: {
-			msg: String,
-		},
-		data() {
-			return {
-                phoneNumber: '',
-                isEmpty: false,
-                startCount: false
-			}
-		},
-		methods: {
-			handleClick() {
-                this.startCount = true
-            },
-            countDone() {
-                this.startCount = false
-            }
-		},
-	}
+export default {
+    name: 'HelloWorld',
+    components: { VpButton, VpInput, VpCountup, VpInlineSwitch, VpLoading, VpToast, VpBadge, VpPopup, VpGroup, VpSwitch },
+    props: {
+        msg: String,
+    },
+    data() {
+        return {
+            phoneNumber: '',
+            isEmpty: false,
+            startCount: false
+        }
+    },
+    methods: {
+        handleClick() {
+            this.startCount = true
+        },
+        countDone() {
+            this.startCount = false
+        }
+    },
+}
 </script>
 
 <style lang="less">
