@@ -1,0 +1,57 @@
+@import "../../base/fn";
+
+.vbase-tabbar {
+	display         : flex;
+	position        : absolute;
+	z-index         : 500;
+	bottom          : 0;
+	width           : 100%;
+	background-color: #F7F7FA;
+
+	&:before {
+		.setTopLine(#C0BFC4);
+	}
+}
+
+.vbase-tabbar__item {
+	display   : block;
+	flex      : 1;
+	padding   : 5px 0 0;
+	font-size : 0;
+	color     : @vbaseTextColorGray;
+	text-align: center;
+	.setTapColor();
+
+	&.vbase-bar__item_on {
+
+		.vbase-tabbar__icon,
+		.vbase-tabbar__icon>i,
+		.vbase-tabbar__label {
+			color: @tabbar-text-active-color;
+		}
+	}
+}
+
+.vbase-tabbar__icon {
+	display: inline-block;
+	width  : 27px;
+	height : 27px;
+
+	i&,
+	>i {
+		font-size: 24px;
+		color    : @vbaseTextColorGray;
+	}
+
+	img {
+		width : 100%;
+		height: 100%;
+	}
+}
+
+.vbase-tabbar__label {
+	text-align : center;
+	color      : @vbaseTextColorGray;
+	font-size  : 10px;
+	line-height: 1.8;
+}

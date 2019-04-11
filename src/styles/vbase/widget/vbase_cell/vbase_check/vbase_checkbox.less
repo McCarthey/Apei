@@ -1,0 +1,32 @@
+@import "../../../base/fn";
+
+.vbase-cells_checkbox {
+	.vbase-cell__hd {
+		padding-right: @vbaseCellInnerGapH;
+	}
+
+	.vbase-icon-checked {
+		&:before {
+			content  : '\EA01';
+			color    : #C9C9C9;
+			font-size: 23px;
+			display  : block;
+		}
+	}
+}
+
+// method2 accessbility
+.vbase-check {
+
+	// checkbox
+	.vbase-cells_checkbox & {
+		&:checked {
+			&+.vbase-icon-checked {
+				&:before {
+					content: '\EA06';
+					color  : #09BB07;
+				}
+			}
+		}
+	}
+}

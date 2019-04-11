@@ -1,0 +1,89 @@
+@import "../../../base/fn";
+
+.vbase-label {
+	display: block;
+	width  : @vbaseCellLabelWidth;
+	.text_wrap();
+}
+
+.vbase-input {
+	width             : 100%;
+	border            : 0;
+	outline           : 0;
+	-webkit-appearance: none;
+	background-color  : transparent;
+	font-size         : inherit;
+	color             : inherit;
+	height            : unit(@vbaseCellLineHeight, em);
+	line-height       : @vbaseCellLineHeight;
+
+	// hides the spin-button
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin            : 0;
+	}
+}
+
+.vbase-textarea {
+	display    : block;
+	border     : 0;
+	resize     : none;
+	width      : 100%;
+	color      : inherit;
+	font-size  : 1em;
+	line-height: inherit;
+	outline    : 0;
+}
+
+.vbase-textarea-counter {
+	color     : @vbaseTextColorTips;
+	text-align: right;
+
+	.vbase-cell_warn & {
+		color: @vbaseTextColorWarn;
+	}
+}
+
+.vbase-toptips {
+	display   : none;
+	position  : fixed;
+	transform : translateZ(0);
+	top       : 0;
+	left      : 0;
+	right     : 0;
+	padding   : 5px;
+	font-size : 14px;
+	text-align: center;
+	color     : #FFF;
+	z-index   : 5000;
+	.text_wrap();
+}
+
+.vbase-toptips_warn {
+	background-color: @vbaseColorWarn;
+}
+
+.vbase-cells_form {
+	.vbase-cell__ft {
+		font-size: 0;
+	}
+
+	.vbase-icon-warn {
+		display: none;
+	}
+
+	input,
+	textarea,
+	label[for] {
+		.setTapColor();
+	}
+}
+
+.vbase-cell_warn {
+	color: @vbaseTextColorWarn;
+
+	.vbase-icon-warn {
+		display: inline-block;
+	}
+}

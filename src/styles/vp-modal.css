@@ -1,9 +1,0 @@
-.vp-modal-open {
-	overflow: hidden;
-	position: fixed;
-	width: 100%;
-}
-
-.vp-modal-open-for-container {
-	overflow: hidden !important;
-}

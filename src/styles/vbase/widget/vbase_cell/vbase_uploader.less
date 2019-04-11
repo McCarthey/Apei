@@ -1,0 +1,116 @@
+@import "../../base/fn";
+
+.vbase-uploader__hd {
+	display       : flex;
+	padding-bottom: @vbaseCellGapV;
+	align-items   : center;
+}
+
+.vbase-uploader__title {
+	flex: 1;
+}
+
+.vbase-uploader__info {
+	color: @vbaseTextColorTips;
+}
+
+.vbase-uploader__bd {
+	margin-bottom: @vbaseCellGapH - (@vbaseCellGapV + @vbaseUploaderFileSpacing);
+	margin-right : -@vbaseUploaderFileSpacing;
+	overflow     : hidden;
+}
+
+.vbase-uploader__files {
+	list-style: none;
+}
+
+.vbase-uploader__file {
+	float          : left;
+	margin-right   : @vbaseUploaderFileSpacing;
+	margin-bottom  : @vbaseUploaderFileSpacing;
+	width          : @vbaseUploaderSize;
+	height         : @vbaseUploaderSize;
+	background     : no-repeat center center;
+	background-size: cover;
+}
+
+.vbase-uploader__file_status {
+	position: relative;
+
+	&:before {
+		content         : " ";
+		position        : absolute;
+		top             : 0;
+		right           : 0;
+		bottom          : 0;
+		left            : 0;
+		background-color: rgba(0, 0, 0, .5);
+	}
+
+	.vbase-uploader__file-content {
+		display: block;
+	}
+}
+
+.vbase-uploader__file-content {
+	display  : none;
+	position : absolute;
+	top      : 50%;
+	left     : 50%;
+	transform: translate(-50%, -50%);
+	color    : #FFFFFF;
+
+	.vbase-icon-warn {
+		display: inline-block;
+	}
+}
+
+.vbase-uploader__input-box {
+	float        : left;
+	position     : relative;
+	margin-right : @vbaseUploaderFileSpacing;
+	margin-bottom: @vbaseUploaderFileSpacing;
+	width        : @vbaseUploaderSize - @vbaseUploaderBorderWidth * 2;
+	height       : @vbaseUploaderSize - @vbaseUploaderBorderWidth * 2;
+	border       : @vbaseUploaderBorderWidth solid @vbaseUploaderBorderColor;
+
+	&:before,
+	&:after {
+		content         : " ";
+		position        : absolute;
+		top             : 50%;
+		left            : 50%;
+		transform       : translate(-50%, -50%);
+		background-color: @vbaseUploaderBorderColor;
+	}
+
+	&:before {
+		width : @vbaseUploaderBorderWidth + 1;
+		height: @vbaseUploaderSize / 2;
+	}
+
+	&:after {
+		width : @vbaseUploaderSize / 2;
+		height: @vbaseUploaderBorderWidth + 1;
+	}
+
+	&:active {
+		border-color: @vbaseUploaderActiveBorderColor;
+
+		&:before,
+		&:after {
+			background-color: @vbaseUploaderActiveBorderColor;
+		}
+	}
+}
+
+.vbase-uploader__input {
+	position: absolute;
+	z-index : 1;
+	top     : 0;
+	left    : 0;
+	width   : 100%;
+	height  : 100%;
+	opacity : 0;
+	.setTapColor();
+}

@@ -1,0 +1,55 @@
+@import "../../base/fn";
+@import "../vbase-button/vbase-button";
+
+.vbase-msg {
+	padding-top: @vbaseMsgPaddingTop;
+	text-align : center;
+}
+
+.vbase-msg__icon-area {
+	margin-bottom: @vbaseMsgIconGap;
+}
+
+.vbase-msg__text-area {
+	margin-bottom: @vbaseMsgTextGap;
+	padding      : 0 20px;
+}
+
+.vbase-msg__text-area a {
+	color: @vbaseLinkColorDefault;
+}
+
+.vbase-msg__title {
+	margin-bottom: @vbaseMsgTitleGap;
+	font-weight  : 400;
+	font-size    : 20px;
+}
+
+.vbase-msg__desc {
+	font-size: 14px;
+	color    : @vbaseTextColorGray;
+}
+
+.vbase-msg__opr-area {
+	margin-bottom: @vbaseMsgOprGap;
+}
+
+.vbase-msg__extra-area {
+	margin-bottom: @vbaseMsgExtraAreaGap;
+	font-size    : 14px;
+	color        : @vbaseTextColorGray;
+
+	a {
+		color: @vbaseLinkColorDefault;
+	}
+}
+
+@media screen and (min-height: @vbaseMsgExtraAreaOfMinHeight) {
+	.vbase-msg__extra-area {
+		position  : fixed;
+		left      : 0;
+		bottom    : 0;
+		width     : 100%;
+		text-align: center;
+	}
+}
