@@ -2,37 +2,26 @@
     <div class="hello">
         <h1>{{ msg }}</h1>
         <v-button
-            type="warn"
-            @click="handleClick"
+            type="primary"
+            @click.native="handleClick"
         >
             primary
         </v-button>
-        <v-button
-            @click="handleClick"
-        >
-            default
-        </v-button>
-        <v-button
-            disabled
-            @click="handleClick"
-        >
-            disabled
-        </v-button>
-        <v-button
-            plain
-            @click="handleClick"
-        >
-            plain
-        </v-button> 
+        <toast v-model="show" text="Hello World"></toast>
+        <badge text="123"></badge>
+        <countup :end-val="88.88" :duration="3" :decimals="2" class="demo-count"></countup>
     </div>
 </template>
 
 <script>
 import VButton from './v-button'
+import Toast from './toast'
+import Badge from './badge'
+import Countup from './countup'
 
 export default {
     name: 'HelloWorld',
-    components: { VButton },
+    components: { VButton, Toast, Badge, Countup },
     props: {
         msg: String,
     },
@@ -40,12 +29,13 @@ export default {
         return {
             phoneNumber: '',
             isEmpty: false,
-            startCount: false
+            startCount: false,
+            show: false
         }
     },
     methods: {
         handleClick() {
-            this.startCount = true
+            this.show = true
         },
         countDone() {
             this.startCount = false
@@ -73,10 +63,10 @@ export default {
     .demo-count {
         font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
         font-size: 6em;
-        color: #04BE02;
+        color: #415FFF;
     }
     .position-vertical-demo {
-        background-color: #ffe26d;
+        background-color: #415FFF;
         color: #000;
         text-align: center;
         padding: 15px;

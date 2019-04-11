@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="less">
-	@import "../../styles/variable.less";
+	@import "../../../styles/variable.less";
 
 	.vvpay-badge {
 		display: inline-block;

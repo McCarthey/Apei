@@ -1,50 +1,51 @@
 <template>
     <div>
         <div
-            v-if="title"
             class="vbase-cells__title"
+            v-if="title"
             :style="
                 cleanStyle({
-                    color: titleColor,
+                    color: titleColor
                 })
             "
-        >
-            {{ title }}
-        </div>
-        <slot name="title" />
+            v-html="title"
+        ></div>
+        <slot name="title"></slot>
         <div
             class="vbase-cells"
             :class="{
-                'vp-no-group-title': !title,
+                'vvpay-no-group-title': !title
             }"
             :style="
                 cleanStyle({
-                    marginTop: typeof gutter === 'number' ? gutter + 'px' : gutter,
+                    marginTop: typeof gutter === 'number' ? gutter + 'px' : gutter
                 })
             "
         >
-            <slot name="after-title" />
-            <slot />
+            <slot name="after-title"></slot>
+            <slot></slot>
         </div>
         <div
+            class="vbase-cells__title vvpay-group-footer-title"
             v-if="footerTitle"
-            class="vbase-cells__title vp-group-footer-title"
             :style="
                 cleanStyle({
-                    color: footerTitleColor,
+                    color: footerTitleColor
                 })
             "
-        >
-            {{ footerTitle }}
-        </div>
+            v-html="footerTitle"
+        ></div>
     </div>
 </template>
 
 <script>
-import cleanStyle from '../../../libs/clean-style'
+import cleanStyle from "../../libs/clean-style";
 
 export default {
-    name: 'VpGroup',
+    name: "group",
+    methods: {
+        cleanStyle
+    },
     props: {
         title: String,
         titleColor: String,
@@ -53,25 +54,21 @@ export default {
         labelMarginRight: String,
         gutter: [String, Number],
         footerTitle: String,
-        footerTitleColor: String,
-    },
-    methods: {
-        cleanStyle,
-    },
-}
+        footerTitleColor: String
+    }
+};
 </script>
 
 <style lang="less">
-	@import '../../../styles/variable.less';
-	@import '../../../styles/vbase/widget/vbase-cell/vbase-access';
-	@import '../../../styles/vbase/widget/vbase-cell/vbase-cell_global';
-	@import '../../../styles/blank.less';
+	@import "../../../styles/vbase/widget/vbase_cell/vbase_access";
+	@import "../../../styles/vbase/widget/vbase_cell/vbase_cell_global";
+	@import "../../../styles/blank.less";
 
-	.vp-no-group-title {
+	.vvpay-no-group-title {
 		margin-top: @group-title-margin-top;
 	}
 
-	.vp-group-footer-title.vbase-cells__title {
+	.vvpay-group-footer-title.vbase-cells__title {
 		margin-top: @group-footer-title-margin-top;
 		margin-bottom: @group-footer-title-margin-bottom;
 		padding-top: 0;
@@ -79,10 +76,10 @@ export default {
 	}
 
 	/* global config for group items */
-	.vp-cell-value {
+	.vvpay-cell-value {
 		color: @cell-value-color;
 	}
-	.vp-cell-placeholder {
+	.vvpay-cell-placeholder {
 		color: @cell-placeholder-color;
 	}
 </style>

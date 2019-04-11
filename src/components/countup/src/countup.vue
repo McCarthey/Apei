@@ -26,10 +26,10 @@
         class="demo-count"
     />
  */
-import { CountUp } from 'countup.js'
 
+import { CountUp } from 'countup.js'
 export default {
-    name: 'VpCountup',
+    name: 'countup',
     props: {
         tag: {
             type: String,
@@ -83,6 +83,6 @@ export default {
     },
     render(h) {
         return h(this.tag, {}, [this.startVal])
-    },
+    }
 }
 </script>
