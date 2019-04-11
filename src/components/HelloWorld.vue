@@ -2,7 +2,7 @@
     <div class="hello">
         <h1>{{ msg }}</h1>
         <v-button
-            type="primary"
+            type="warn"
             @click="handleClick"
         >
             primary
@@ -18,6 +18,12 @@
         >
             disabled
         </v-button>
+        <v-button
+            plain
+            @click="handleClick"
+        >
+            plain
+        </v-button> 
     </div>
 </template>
 
@@ -49,6 +55,7 @@ export default {
 </script>
 
 <style lang="less">
+	@import "../styles/reset.less";
 	h3 {
 		margin: 40px 0 0;
 	}
