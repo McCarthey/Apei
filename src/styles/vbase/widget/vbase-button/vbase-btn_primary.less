@@ -1,14 +1,18 @@
 @import "../../base/fn";
 
 .vbase-btn_primary {
-	background-color: @vbaseBtnPrimaryBg;
+	background: linear-gradient(-135deg, @vbaseBtnPrimaryRightBg 0%, @vbaseBtnPrimaryLeftBg 100%);
+
+	&:after {
+		border: none;
+	}
 
 	&:not(.vbase-btn_disabled):visited {
 		color: @vbaseBtnFontColor;
 	}
 
 	&:not(.vbase-btn_disabled):active {
-		color           : @vbaseBtnActiveFontColor;
-		background-color: @vbaseBtnPrimaryActiveBg;
+		color     : @vbaseBtnActiveFontColor;
+		background: @vbaseBtnPrimaryActiveBg;
 	}
 }

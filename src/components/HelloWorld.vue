@@ -5,7 +5,18 @@
             type="primary"
             @click="handleClick"
         >
-            开始第二个Count
+            primary
+        </v-button>
+        <v-button
+            @click="handleClick"
+        >
+            default
+        </v-button>
+        <v-button
+            disabled
+            @click="handleClick"
+        >
+            disabled
         </v-button>
     </div>
 </template>
