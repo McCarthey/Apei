@@ -1,8 +1,8 @@
-import VpCountup from './src/countup';
+import Countup from './src/countup';
 
 /* istanbul ignore next */
-VpCountup.install = function(Vue) {
-    Vue.component(VpCountup.name, VpCountup);
+Countup.install = function(Vue) {
+    Vue.component(Countup.name, Countup);
 };
 
-export default VpCountup;
+export default Countup;

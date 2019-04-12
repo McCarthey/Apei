@@ -1,211 +1,235 @@
 <template>
-    <transition :name="`vp-popup-animate-${position}`">
+    <transition :name="`vvpay-popup-animate-${position}`">
         <div
             v-show="show && !initialShow"
             :style="styles"
-            class="vp-popup-dialog"
-            :class="[`vp-popup-${position}`, show ? 'vp-popup-show' : '']"
+            class="vvpay-popup-dialog"
+            :class="[`vvpay-popup-${position}`, show ? 'vvpay-popup-show' : '']"
         >
-            <slot v-if="shouldRenderBody" />
+            <slot v-if="shouldRenderBody"></slot>
         </div>
     </transition>
 </template>
 
 <script>
-import Popup from './popup'
-import dom from '../../../libs/dom'
+import Popup from "./popup";
+import dom from "@/libs/dom";
 
 export default {
-    name: 'VpPopup',
+    name: "popup",
     props: {
         value: Boolean,
         height: {
             type: String,
-            default: 'auto',
+            default: "auto"
         },
         width: {
             type: String,
-            default: 'auto',
+            default: "auto"
         },
         showMask: {
             type: Boolean,
-            default: true,
+            default: true
         },
         isTransparent: Boolean,
         hideOnBlur: {
             type: Boolean,
-            default: true,
+            default: true
         },
         position: {
             type: String,
-            default: 'bottom',
+            default: "bottom"
         },
         maxHeight: String,
         popupStyle: Object,
         hideOnDeactivated: {
             type: Boolean,
-            default: true,
+            default: true
         },
         shouldRerenderOnShow: {
             type: Boolean,
-            default: false,
+            default: false
         },
         shouldScrollTopOnShow: {
             type: Boolean,
-            default: false,
-        },
-    },
-    data() {
-        return {
-            layout: '',
-            initialShow: true,
-            hasFirstShow: false,
-            shouldRenderBody: true,
-            show: this.value,
+            default: false
         }
-    },
-    computed: {
-        styles() {
-            const styles = {}
-            if (!this.position || this.position === 'bottom' || this.position === 'top') {
-                styles.height = this.height
-            } else {
-                styles.width = this.width
-            }
-
-            if (this.maxHeight) {
-                styles['max-height'] = this.maxHeight
-            }
-
-            this.isTransparent && (styles['background'] = 'transparent')
-            if (this.popupStyle) {
-                for (let i in this.popupStyle) {
-                    styles[i] = this.popupStyle[i]
-                }
-            }
-            return styles
-        },
-    },
-    watch: {
-        value(val) {
-            this.show = val
-        },
-        show(val) {
-            this.$emit('input', val)
-            if (val) {
-                if (this.shouldRerenderOnShow) {
-                    this.shouldRenderBody = false
-                    this.$nextTick(() => {
-                        this.scrollTop()
-                        this.shouldRenderBody = true
-                        this.doShow()
-                    })
-                } else {
-                    if (this.shouldScrollTopOnShow) {
-                        this.scrollTop()
-                    }
-                    this.doShow()
-                }
-            } else {
-                this.$emit('on-hide')
-                this.show = false
-                this.popup.hide(false)
-                setTimeout(() => {
-                    if (!document.querySelector('.vp-popup-dialog.vp-popup-show')) {
-                        this.fixSafariOverflowScrolling('touch')
-                    }
-                    this.removeModalClassName()
-                }, 200)
-            }
-        },
     },
     created() {
         // get global layout config
-        if (this.$vp && this.$vp.config && this.$vp.config.$layout === 'VIEW_BOX') {
-            this.layout = 'VIEW_BOX'
+        if (
+            this.$vvpay &&
+				this.$vvpay.config &&
+				this.$vvpay.config.$layout === "VIEW_BOX"
+        ) {
+            this.layout = "VIEW_BOX";
         }
     },
     mounted() {
-        this.$overflowScrollingList = document.querySelectorAll('.vp-fix-safari-overflow-scrolling')
+        this.$overflowScrollingList = document.querySelectorAll(
+            ".vvpay-fix-safari-overflow-scrolling"
+        );
         this.$nextTick(() => {
-            const _this = this
+            const _this = this;
             this.popup = new Popup({
                 showMask: _this.showMask,
                 container: _this.$el,
                 hideOnBlur: _this.hideOnBlur,
                 onOpen() {
-                    _this.fixSafariOverflowScrolling('auto')
-                    _this.show = true
+                    _this.fixSafariOverflowScrolling("auto");
+                    _this.show = true;
                 },
                 onClose() {
-                    _this.show = false
-                    if (window.__$vpPopups && Object.keys(window.__$vpPopups).length > 1) return
-                    if (document.querySelector('.vp-popup-dialog.vp-popup-mask-disabled')) return
+                    _this.show = false;
+                    if (
+                        window.__$vvpayPopups &&
+							Object.keys(window.__$vvpayPopups).length > 1
+                    )
+                        return;
+                    if (
+                        document.querySelector(
+                            ".vvpay-popup-dialog.vvpay-popup-mask-disabled"
+                        )
+                    )
+                        return;
                     setTimeout(() => {
-                        _this.fixSafariOverflowScrolling('touch')
-                    }, 300)
-                },
-            })
+                        _this.fixSafariOverflowScrolling("touch");
+                    }, 300);
+                }
+            });
             if (this.value) {
-                this.popup.show()
+                this.popup.show();
             }
-            this.initialShow = false
-        })
+            this.initialShow = false;
+        });
     },
     deactivated() {
         if (this.hideOnDeactivated) {
-            this.show = false
+            this.show = false;
         }
-        this.removeModalClassName()
-    },
-    beforeDestroy() {
-        this.popup && this.popup.destroy()
-        this.fixSafariOverflowScrolling('touch')
-        this.removeModalClassName()
+        this.removeModalClassName();
     },
     methods: {
         /**
+			 * https://github.com/airyland/vvpay/issues/311
 			 * https://benfrain.com/z-index-stacking-contexts-experimental-css-and-ios-safari/
 			 */
         fixSafariOverflowScrolling(type) {
-            if (!this.$overflowScrollingList.length) return
+            if (!this.$overflowScrollingList.length) return;
+            // if (!/iphone/i.test(navigator.userAgent)) return
             for (let i = 0; i < this.$overflowScrollingList.length; i++) {
-                this.$overflowScrollingList[i].style.webkitOverflowScrolling = type
+                this.$overflowScrollingList[i].style.webkitOverflowScrolling = type;
             }
         },
         removeModalClassName() {
-            this.layout === 'VIEW_BOX' && dom.removeClass(document.body, 'vp-modal-open')
+            this.layout === "VIEW_BOX" &&
+					dom.removeClass(document.body, "vvpay-modal-open");
         },
         doShow() {
-            this.popup && this.popup.show()
-            this.$emit('on-show')
-            this.fixSafariOverflowScrolling('auto')
-            this.layout === 'VIEW_BOX' && dom.addClass(document.body, 'vp-modal-open')
+            this.popup && this.popup.show();
+            this.$emit("on-show");
+            this.fixSafariOverflowScrolling("auto");
+            this.layout === "VIEW_BOX" &&
+					dom.addClass(document.body, "vvpay-modal-open");
             if (!this.hasFirstShow) {
-                this.$emit('on-first-show')
-                this.hasFirstShow = true
+                this.$emit("on-first-show");
+                this.hasFirstShow = true;
             }
         },
         scrollTop() {
             this.$nextTick(() => {
-                this.$el.scrollTop = 0
-                const box = this.$el.querySelectorAll('.vp-scrollable')
+                this.$el.scrollTop = 0;
+                const box = this.$el.querySelectorAll(".vvpay-scrollable");
                 if (box.length) {
                     for (let i = 0; i < box.length; i++) {
-                        box[i].scrollTop = 0
+                        box[i].scrollTop = 0;
                     }
                 }
-            })
-        },
+            });
+        }
     },
-}
+    data() {
+        return {
+            layout: "",
+            initialShow: true,
+            hasFirstShow: false,
+            shouldRenderBody: true,
+            show: this.value
+        };
+    },
+    computed: {
+        styles() {
+            const styles = {};
+            if (
+                !this.position ||
+					this.position === "bottom" ||
+					this.position === "top"
+            ) {
+                styles.height = this.height;
+            } else {
+                styles.width = this.width;
+            }
+
+            if (this.maxHeight) {
+                styles["max-height"] = this.maxHeight;
+            }
+
+            this.isTransparent && (styles["background"] = "transparent");
+            if (this.popupStyle) {
+                for (let i in this.popupStyle) {
+                    styles[i] = this.popupStyle[i];
+                }
+            }
+            return styles;
+        }
+    },
+    watch: {
+        value(val) {
+            this.show = val;
+        },
+        show(val) {
+            this.$emit("input", val);
+            if (val) {
+                // rerender body
+                if (this.shouldRerenderOnShow) {
+                    this.shouldRenderBody = false;
+                    this.$nextTick(() => {
+                        this.scrollTop();
+                        this.shouldRenderBody = true;
+                        this.doShow();
+                    });
+                } else {
+                    if (this.shouldScrollTopOnShow) {
+                        this.scrollTop();
+                    }
+                    this.doShow();
+                }
+            } else {
+                this.$emit("on-hide");
+                this.show = false;
+                this.popup.hide(false);
+                setTimeout(() => {
+                    if (!document.querySelector(".vvpay-popup-dialog.vvpay-popup-show")) {
+                        this.fixSafariOverflowScrolling("touch");
+                    }
+                    this.removeModalClassName();
+                }, 200);
+            }
+        }
+    },
+    beforeDestroy() {
+        this.popup && this.popup.destroy();
+        this.fixSafariOverflowScrolling("touch");
+        this.removeModalClassName();
+    }
+};
 </script>
 
 <style lang="less">
-	@import '../../../styles/variable.less';
-	@import '../../../styles/vp-modal.css';
+	@import "../../../styles/variable.less";
+	@import "../../../styles/vvpay-modal.css";
 
-	.vp-popup-dialog {
+	.vvpay-popup-dialog {
 		position: fixed;
 		left: 0;
 		bottom: 0;
@@ -218,7 +242,7 @@ export default {
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
 	}
-	.vp-popup-dialog.vp-popup-left {
+	.vvpay-popup-dialog.vvpay-popup-left {
 		width: auto;
 		height: 100%;
 		top: 0;
@@ -226,7 +250,7 @@ export default {
 		bottom: auto;
 		left: 0;
 	}
-	.vp-popup-dialog.vp-popup-right {
+	.vvpay-popup-dialog.vvpay-popup-right {
 		width: auto;
 		height: 100%;
 		top: 0;
@@ -234,14 +258,14 @@ export default {
 		bottom: auto;
 		left: auto;
 	}
-	.vp-popup-dialog.vp-popup-top {
+	.vvpay-popup-dialog.vvpay-popup-top {
 		width: 100%;
 		top: 0;
 		right: auto;
 		bottom: auto;
 		left: 0;
 	}
-	.vp-popup-mask {
+	.vvpay-popup-mask {
 		display: block;
 		position: fixed;
 		top: 0;
@@ -254,27 +278,27 @@ export default {
 		z-index: -1;
 		transition: opacity 400ms;
 	}
-	.vp-popup-mask.vp-popup-show {
+	.vvpay-popup-mask.vvpay-popup-show {
 		opacity: 1;
 	}
 
-	.vp-popup-animate-bottom-enter,
-	.vp-popup-animate-bottom-leave-active {
+	.vvpay-popup-animate-bottom-enter,
+	.vvpay-popup-animate-bottom-leave-active {
 		transform: translate3d(0, 100%, 0);
 	}
 
-	.vp-popup-animate-left-enter,
-	.vp-popup-animate-left-leave-active {
+	.vvpay-popup-animate-left-enter,
+	.vvpay-popup-animate-left-leave-active {
 		transform: translate3d(-100%, 0, 0);
 	}
 
-	.vp-popup-animate-right-enter,
-	.vp-popup-animate-right-leave-active {
+	.vvpay-popup-animate-right-enter,
+	.vvpay-popup-animate-right-leave-active {
 		transform: translate3d(100%, 0, 0);
 	}
 
-	.vp-popup-animate-top-enter,
-	.vp-popup-animate-top-leave-active {
+	.vvpay-popup-animate-top-enter,
+	.vvpay-popup-animate-top-leave-active {
 		transform: translate3d(0, -100%, 0);
 	}
 </style>

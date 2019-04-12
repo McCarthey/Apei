@@ -1,8 +1,8 @@
-import VpPopup from './src/popup.vue';
+import Popup from './src/popup.vue';
 
 /* istanbul ignore next */
-VpPopup.install = function(Vue) {
-    Vue.component(VpPopup.name, VpPopup);
+Popup.install = function(Vue) {
+    Vue.component(Popup.name, Popup);
 };
 
-export default VpPopup;
+export default Popup;

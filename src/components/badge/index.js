@@ -1,9 +1,9 @@
     
-import VpBadge from './src/badge';
+import Badge from './src/badge';
 
 /* istanbul ignore next */
-VpBadge.install = function(Vue) {
-    Vue.component(VpBadge.name, VpBadge);
+Badge.install = function(Vue) {
+    Vue.component(Badge.name, Badge);
 };
 
-export default VpBadge;
+export default Badge;

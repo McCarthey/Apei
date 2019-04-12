@@ -1,15 +1,15 @@
 <template>
-    <span class="vp-label-desc"><slot /></span>
+    <span class="vvpay-label-desc"><slot></slot></span>
 </template>
 
 <script>
 export default {
-    name: 'VpInlineDesc',
-}
+    name: "inline-desc"
+};
 </script>
 
 <style>
-	.vp-label-desc {
+	.vvpay-label-desc {
 		font-size: 14px;
 		color: #666;
 	}

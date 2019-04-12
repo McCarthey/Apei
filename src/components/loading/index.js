@@ -1,8 +1,8 @@
-import VpLoading from './src/loading';
+import Loading from './src/loading';
 
 /* istanbul ignore next */
-VpLoading.install = function(Vue) {
-    Vue.component(VpLoading.name, VpLoading);
+Loading.install = function(Vue) {
+    Vue.component(Loading.name, Loading);
 };
 
-export default VpLoading;
+export default Loading;

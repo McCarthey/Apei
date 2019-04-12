@@ -1,23 +1,20 @@
 <template>
     <transition :name="transition">
         <div
+            class="vbase-loading_toast vvpay-loading"
+            :class="!text ? 'vvpay-loading-no-text' : ''"
             v-show="show"
-            class="vbase-loading_toast vp-loading"
-            :class="!text ? 'vp-loading-no-text' : ''"
         >
-            <div class="vbase-mask_transparent" />
+            <div class="vbase-mask_transparent"></div>
             <div
                 class="vbase-toast"
                 :style="{
-                    position: position,
+                    position: position
                 }"
             >
-                <i class="vbase-loading vbase-icon_toast" />
-                <p
-                    v-if="text"
-                    class="vbase-toast__content"
-                >
-                    {{ text || 'loading' }}<slot />
+                <i class="vbase-loading vbase-icon_toast"></i>
+                <p class="vbase-toast__content" v-if="text">
+                    {{ text || "loading" }}<slot></slot>
                 </p>
             </div>
         </div>
@@ -26,10 +23,10 @@
 
 <script>
 export default {
-    name: 'VpLoading',
+    name: "loading",
     model: {
-        prop: 'show',
-        event: 'change',
+        prop: "show",
+        event: "change"
     },
     props: {
         show: Boolean,
@@ -37,24 +34,23 @@ export default {
         position: String,
         transition: {
             type: String,
-            default: 'vp-mask',
-        },
+            default: "vvpay-mask"
+        }
     },
     watch: {
         show(val) {
-            this.$emit('update:show', val)
-        },
-    },
-}
+            this.$emit("update:show", val);
+        }
+    }
+};
 </script>
 
 <style lang="less">
-    @import '../../../styles/variable.less';
-	@import '../../../styles/vbase/widget/vbase-tips/vbase-mask.less';
-	@import '../../../styles/vbase/widget/vbase-tips/vbase-toast.less';
-	@import '../../../styles/vbase/widget/vbase-loading/vbase-loading.less';
+	@import "../../../styles/vbase/widget/vbase_tips/vbase_mask";
+	@import "../../../styles/vbase/widget/vbase_tips/vbase_toast";
+	@import "../../../styles/vbase/widget/vbase-loading/vbase-loading.less";
 
-	.vp-loading .vbase-toast {
+	.vvpay-loading .vbase-toast {
 		z-index: @loading-z-index;
 	}
 	.vbase-icon_toast.vbase-loading {
@@ -64,22 +60,22 @@ export default {
 		vertical-align: baseline;
 		display: inline-block;
 	}
-	.vp-mask-enter,
-	.vp-mask-leave-active,
-	.vp-mask-leave-active,
-	.vp-mask-enter-active {
+	.vvpay-mask-enter,
+	.vvpay-mask-leave-active,
+	.vvpay-mask-leave-active,
+	.vvpay-mask-enter-active {
 		position: relative;
 		z-index: 1;
 	}
-	.vp-mask-enter,
-	.vp-mask-leave-active {
+	.vvpay-mask-enter,
+	.vvpay-mask-leave-active {
 		opacity: 0;
 	}
-	.vp-mask-leave-active,
-	.vp-mask-enter-active {
+	.vvpay-mask-leave-active,
+	.vvpay-mask-enter-active {
 		transition: opacity 300ms;
 	}
-	.vp-loading-no-text .vbase-toast {
+	.vvpay-loading-no-text .vbase-toast {
 		min-height: 98px;
 	}
 </style>

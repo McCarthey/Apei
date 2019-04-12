@@ -1,8 +1,8 @@
-import VpToast from './src/toast.vue';
+import Toast from './src/toast.vue';
 
 /* istanbul ignore next */
-VpToast.install = function(Vue) {
-    Vue.component(VpToast.name, VpToast);
+Toast.install = function(Vue) {
+    Vue.component(Toast.name, Toast);
 };
 
-export default VpToast;
+export default Toast;

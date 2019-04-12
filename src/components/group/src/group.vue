@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import cleanStyle from "../../libs/clean-style";
+import cleanStyle from "@/libs/clean-style";
 
 export default {
     name: "group",

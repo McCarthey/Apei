@@ -1,114 +1,146 @@
-const isBrowser = typeof window === 'object'
+import passiveSupported from "@/libs/passive_supported";
+const isBrowser = typeof window === "object";
 
 // not a good way but works well
 if (isBrowser) {
-    window.__$vpPopups = window.__$vpPopups || {}
+    window.__$vvpayPopups = window.__$vvpayPopups || {};
 }
 
-const popupDialog = function (option) {
+const popupDialog = function(option) {
     if (!isBrowser) {
-        return
+        return;
     }
-    this.uuid = Math.random().toString(36).substring(3, 8)
-    this.params = {}
-    if (Object.prototype.toString.call(option) === '[object Object]') {
+    this.uuid = Math.random()
+        .toString(36)
+        .substring(3, 8);
+    this.params = {};
+    if (Object.prototype.toString.call(option) === "[object Object]") {
         this.params = {
             hideOnBlur: option.hideOnBlur,
-            onOpen: option.onOpen || function () {},
-            onClose: option.onClose || function () {},
+            onOpen: option.onOpen || function() {},
+            onClose: option.onClose || function() {},
             showMask: option.showMask
-        }
+        };
     }
-    if (!!document.querySelectorAll('.vp-popup-mask').length <= 0) {
-        this.divMask = document.createElement('a')
-        this.divMask.className = 'vp-popup-mask'
-        this.divMask.dataset.uuid = ''
-        this.divMask.href = 'javascript:void(0)'
-        document.body.appendChild(this.divMask)
+    if (!!document.querySelectorAll(".vvpay-popup-mask").length <= 0) {
+        this.divMask = document.createElement("a");
+        this.divMask.className = "vvpay-popup-mask";
+        this.divMask.dataset.uuid = "";
+        this.divMask.href = "javascript:void(0)";
+        document.body.appendChild(this.divMask);
     }
-    let div
+    let div;
     if (!option.container) {
-        div = document.createElement('div')
+        div = document.createElement("div");
     } else {
-        div = option.container
+        div = option.container;
     }
 
-    div.className += ` vp-popup-dialog vp-popup-dialog-${this.uuid}`
+    div.className += ` vvpay-popup-dialog vvpay-popup-dialog-${this.uuid}`;
     if (!this.params.hideOnBlur) {
-        div.className += ' vp-popup-mask-disabled'
+        div.className += " vvpay-popup-mask-disabled";
     }
 
-    this.div = div
+    this.div = div;
 
     if (!option.container) {
-        document.body.appendChild(div)
+        document.body.appendChild(div);
     }
-    this.container = document.querySelector('.vp-popup-dialog-' + this.uuid)
-    this.mask = document.querySelector('.vp-popup-mask')
-    this.mask.dataset.uuid += `,${this.uuid}`
-    this._bindEvents()
-    option = null
+    this.container = document.querySelector(".vvpay-popup-dialog-" + this.uuid);
+    this.mask = document.querySelector(".vvpay-popup-mask");
+    this.mask.dataset.uuid += `,${this.uuid}`;
+    this._bindEvents();
+    option = null;
     this.containerHandler = () => {
-        this.mask && !/show/.test(this.mask.className) && setTimeout(() => {
-            !/show/.test(this.mask.className) && (this.mask.style['zIndex'] = -1)
-        }, 200)
-    }
+        this.mask &&
+			!/show/.test(this.mask.className) &&
+			setTimeout(() => {
+			    !/show/.test(this.mask.className) &&
+					(this.mask.style["zIndex"] = -1);
+			}, 200);
+    };
 
-    this.container && this.container.addEventListener('webkitTransitionEnd', this.containerHandler)
-    this.container && this.container.addEventListener('transitionend', this.containerHandler)
-}
+    this.container &&
+		this.container.addEventListener(
+		    "webkitTransitionEnd",
+		    this.containerHandler
+		);
+    this.container &&
+		this.container.addEventListener("transitionend", this.containerHandler);
+};
 
-popupDialog.prototype.onClickMask = function () {
-    this.params.hideOnBlur && this.params.onClose()
-}
+popupDialog.prototype.onClickMask = function() {
+    this.params.hideOnBlur && this.params.onClose();
+};
 
-popupDialog.prototype._bindEvents = function () {
+popupDialog.prototype._bindEvents = function() {
     if (this.params.hideOnBlur) {
-        this.mask.addEventListener('click', this.onClickMask.bind(this), false)
-        this.mask.addEventListener('touchmove', e => e.preventDefault(), false)
+        this.mask.addEventListener("click", this.onClickMask.bind(this), false);
+        this.mask.addEventListener(
+            "touchmove",
+            e => e.preventDefault(),
+            passiveSupported ? { passive: false } : false
+        );
     }
-}
+};
 
-popupDialog.prototype.show = function () {
+popupDialog.prototype.show = function() {
     if (this.params.showMask) {
-        this.mask.classList.add('vp-popup-show')
-        this.mask.style['zIndex'] = 500
+        this.mask.classList.add("vvpay-popup-show");
+        this.mask.style["zIndex"] = 500;
     }
-    this.container.classList.add('vp-popup-show')
-    this.params.onOpen && this.params.onOpen(this)
+    this.container.classList.add("vvpay-popup-show");
+    this.params.onOpen && this.params.onOpen(this);
     if (isBrowser) {
-        window.__$vpPopups[this.uuid] = 1
+        window.__$vvpayPopups[this.uuid] = 1;
     }
-}
+};
 
-popupDialog.prototype.hide = function (shouldCallback = true) {
-    this.container.classList.remove('vp-popup-show')
-    if (!document.querySelector('.vp-popup-dialog.vp-popup-show')) {
-        this.mask.classList.remove('vp-popup-show')
+popupDialog.prototype.hide = function(shouldCallback = true) {
+    this.container.classList.remove("vvpay-popup-show");
+    if (!document.querySelector(".vvpay-popup-dialog.vvpay-popup-show")) {
+        this.mask.classList.remove("vvpay-popup-show");
         setTimeout(() => {
-            this.mask && !/show/.test(this.mask.className) && (this.mask.style['zIndex'] = -1)
-        }, 400)
+            this.mask &&
+				!/show/.test(this.mask.className) &&
+				(this.mask.style["zIndex"] = -1);
+        }, 400);
     }
-    shouldCallback === false && this.params.onClose && this.params.hideOnBlur && this.params.onClose(this)
-    this.isShow = false
+    shouldCallback === false &&
+		this.params.onClose &&
+		this.params.hideOnBlur &&
+		this.params.onClose(this);
+    this.isShow = false;
     if (isBrowser) {
-        delete window.__$vpPopups[this.uuid]
+        delete window.__$vvpayPopups[this.uuid];
     }
-}
+};
 
-popupDialog.prototype.destroy = function () {
-    this.mask.dataset.uuid = this.mask.dataset.uuid.replace(new RegExp(`,${this.uuid}`, 'g'), '')
+popupDialog.prototype.destroy = function() {
+    this.mask.dataset.uuid = this.mask.dataset.uuid.replace(
+        new RegExp(`,${this.uuid}`, "g"),
+        ""
+    );
     if (!this.mask.dataset.uuid) {
-        this.mask.removeEventListener('click', this.onClickMask.bind(this), false)
-        this.mask && this.mask.parentNode && this.mask.parentNode.removeChild(this.mask)
+        this.mask.removeEventListener(
+            "click",
+            this.onClickMask.bind(this),
+            false
+        );
+        this.mask &&
+			this.mask.parentNode &&
+			this.mask.parentNode.removeChild(this.mask);
     } else {
-        this.hide()
+        this.hide();
     }
-    this.container.removeEventListener('webkitTransitionEnd', this.containerHandler)
-    this.container.removeEventListener('transitionend', this.containerHandler)
+    this.container.removeEventListener(
+        "webkitTransitionEnd",
+        this.containerHandler
+    );
+    this.container.removeEventListener("transitionend", this.containerHandler);
     if (isBrowser) {
-        delete window.__$vpPopups[this.uuid]
+        delete window.__$vvpayPopups[this.uuid];
     }
-}
+};
 
-export default popupDialog
+export default popupDialog;

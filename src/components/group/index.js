@@ -1,8 +1,8 @@
-import VpGroup from './src/group';
+import Group from './src/group';
 
 /* istanbul ignore next */
-VpGroup.install = function(Vue) {
-    Vue.component(VpGroup.name, VpGroup);
+Group.install = function(Vue) {
+    Vue.component(Group.name, Group);
 };
 
-export default VpGroup;
+export default Group;
