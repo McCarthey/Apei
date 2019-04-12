@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
 const portfinder = require("portfinder");
+const chalk = require('chalk')
 
 const HOST = process.env.HOST;
 const PORT = process.env.PORT && Number(process.env.PORT);
@@ -93,12 +94,9 @@ module.exports = new Promise((resolve, reject) => {
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
             messages: [
-              `Your application is running here: \n
-              http://${
-              devWebpackConfig.devServer.host
-              }:${port}`,
-              `
-              http://${ADDRESS}:${port}`
+              'Your application is running here:\n',
+              chalk.green(`\thttp://${devWebpackConfig.devServer.host}:${port}\n`),
+              chalk.green(`\thttp://${ADDRESS}:${port}`)
             ]
           },
           onErrors: config.dev.notifyOnErrors
