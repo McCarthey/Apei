@@ -12,6 +12,7 @@ const portfinder = require("portfinder");
 
 const HOST = process.env.HOST;
 const PORT = process.env.PORT && Number(process.env.PORT);
+const ADDRESS = require('../utils/getAddress')
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: "development",
@@ -92,9 +93,12 @@ module.exports = new Promise((resolve, reject) => {
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
             messages: [
-              `Your application is running here: http://${
-                devWebpackConfig.devServer.host
-              }:${port}`
+              `Your application is running here: \n
+              http://${
+              devWebpackConfig.devServer.host
+              }:${port}`,
+              `
+              http://${ADDRESS}:${port}`
             ]
           },
           onErrors: config.dev.notifyOnErrors
