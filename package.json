@@ -1,6 +1,6 @@
 {
   "name": "a-pei",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "A Vue.js project",
   "author": "Randall <randall@duomai.com>",
   "main": "lib/index.js",
@@ -27,9 +27,7 @@
     "validator": "^10.11.0",
     "vanilla-masker": "^1.2.0",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
-    "webpack-cli": "^3.3.0",
-    "webpack-dev-middleware": "^3.6.2"
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -90,7 +88,9 @@
     "webpack": "^4.29.6",
     "webpack-bundle-analyzer": "^3.2.0",
     "webpack-dev-server": "^3.3.1",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-middleware": "^3.6.2"
   },
   "engines": {
     "node": ">= 6.0.0",
