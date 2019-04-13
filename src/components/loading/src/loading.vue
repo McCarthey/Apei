@@ -2,7 +2,6 @@
     <transition :name="transition">
         <div
             class="vbase-loading_toast vvpay-loading"
-            :class="!text ? 'vvpay-loading-no-text' : ''"
             v-show="show"
         >
             <div class="vbase-mask_transparent"></div>
@@ -12,17 +11,21 @@
                     position: position
                 }"
             >
-                <i class="vbase-loading vbase-icon_toast"></i>
-                <p class="vbase-toast__content" v-if="text">
-                    {{ text || "loading" }}<slot></slot>
+                <!-- <i class="vbase-loading vbase-icon_toast"></i> -->
+                <p class="vbase-toast__content vvpay__content">
+                    {{ text || "加载中" }}<span class="vvpay-loading-text-dot" v-if="!text">···</span>
                 </p>
+                <triple-bounce></triple-bounce>
             </div>
         </div>
     </transition>
 </template>
 
 <script>
+import TripleBounce from './triple-bounce'
+
 export default {
+    components: { TripleBounce },
     name: "loading",
     model: {
         prop: "show",
@@ -51,7 +54,9 @@ export default {
 	@import "../../../styles/vbase/widget/vbase-loading/vbase-loading.less";
 
 	.vvpay-loading .vbase-toast {
-		z-index: @loading-z-index;
+        width: 9.6em;
+        top: 40%;
+        z-index: @loading-z-index;
 	}
 	.vbase-icon_toast.vbase-loading {
 		margin: 30px 0 0;
@@ -75,7 +80,18 @@ export default {
 	.vvpay-mask-enter-active {
 		transition: opacity 300ms;
 	}
-	.vvpay-loading-no-text .vbase-toast {
-		min-height: 98px;
-	}
+	.vvpay-loading .vbase-toast {
+        min-height: 60px;
+        border-radius: 8px;
+    }
+    .vbase-loading_toast .vbase-toast__content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0 0 0;
+    }
+    .vvpay-loading-text-dot{
+        font-size: 20px;
+        margin-left: 3px;
+    }
 </style>

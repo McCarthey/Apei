@@ -2,18 +2,24 @@
     <div class="hello">
         <h1>{{ msg }}</h1>
         <v-button
+            plain
+            @click.native="handleLoading"
+        >
+            loading弹出
+        </v-button>
+        <v-button
             type="primary"
             @click.native="handleClick"
         >
-            primary
+            toast弹出
         </v-button>
         <toast v-model="show" text="Hello World"></toast>
         <badge text="123"></badge>
         <inline-v-switch v-model="value"></inline-v-switch>
         <countup :end-val="88.88" :duration="3" :decimals="2" class="demo-count"></countup>
-        <group title="得瑟什么">
-            <v-switch title="你妈嗨"></v-switch>
-            <v-switch title="嗨个鸡儿" inline-desc="日了狗" v-model="value1"></v-switch>
+        <group title="小可爱">
+            <v-switch title="给爷笑一个"></v-switch>
+            <v-switch title="爷给你笑一个" inline-desc="亲一口" v-model="value1"></v-switch>
         </group>
 
 
@@ -35,8 +41,15 @@
             </v-input>
         </group>
 
+        <group-title>4 columns</group-title>
+        <grid :show-lr-borders="false">
+            <grid-item label="Grid" v-for="i in 4" :key="i">
+                <img slot="icon" src="@/assets/logo.png">
+            </grid-item>
+        </grid>
+
         
-        <loading :show="value1" text="小子，你很性啊"></loading>
+        <loading :show="showLoading"></loading>
 
         <popup v-model="value" @on-hide="log('hide')" @on-show="log('show')">
             <div class="popup0">
@@ -60,10 +73,13 @@ import InlineVSwitch from './inline-v-switch'
 import VInput from './v-input'
 import Loading from './loading'
 import Popup from './popup'
+import GroupTitle from './group-title'
+import Grid from './grid'
+import GridItem from './grid-item'
 
 export default {
     name: 'HelloWorld',
-    components: { VButton, Toast, Badge, Countup, VSwitch, Group, InlineVSwitch, VInput, Loading, Popup },
+    components: { VButton, Toast, Badge, Countup, VSwitch, Group, InlineVSwitch, VInput, Loading, Popup, GroupTitle, Grid, GridItem },
     props: {
         msg: String,
     },
@@ -76,7 +92,8 @@ export default {
             value1: false,
             password: '',
             password2: '',
-            value: false
+            value: false,
+            showLoading: false
         }
     },
     methods: {
@@ -88,6 +105,12 @@ export default {
         },
         log (str) {
             console.log(str)
+        },
+        handleLoading() {
+            this.showLoading = true
+            setTimeout(()=>{
+                this.showLoading = false
+            }, 3000)
         }
     },
 }
