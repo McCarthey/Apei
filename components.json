@@ -1,7 +1,7 @@
 {
     "index": "./src/index.js",
     "badge": "./src/components/badge",
-    "button": "./src/components/button",
+    "button": "./src/components/v-button",
     "countup": "./src/components/countup",
-    "input": "./src/components/input"
+    "input": "./src/components/v-input"
 }

@@ -1,7 +1,8 @@
-import VButton from "./components/button/index.js";
-
+import VButton from "./components/v-button/index.js";
+import VInput from "./components/v-input/index.js"
 const Components = {
-    VButton
+    VButton,
+    VInput
 };
 
 const install = function (Vue) {
@@ -16,5 +17,6 @@ if (typeof window !== "undefined" && window.Vue) {
 
 export default {
     install,
-    VButton
+    VButton,
+    VInput
 };
