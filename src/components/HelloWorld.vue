@@ -4,7 +4,7 @@
         <v-button plain @click.native="handleLoading">loading弹出</v-button>
         <v-button type="primary" @click.native="handleClick">toast弹出</v-button>
         <toast v-model="show" text="Hello World"></toast>
-        <badge text="123"></badge>
+        <badge text="123" max="99"></badge>
         <inline-v-switch v-model="value"></inline-v-switch>
         <countup :end-val="88.88" :duration="3" :decimals="2" class="demo-count"></countup>
         <group title="小可爱">

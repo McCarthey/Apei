@@ -1,6 +1,6 @@
 <template>
     <span
-        v-text="text"
+        v-text="max ? renderText :text"  
         :class="[
             'vvpay-badge',
             {
@@ -14,10 +14,19 @@
 
 <script>
 export default {
-    name: "badge",
+   	name: 'badge',
     props: {
-        text: [String, Number]
-    }
+        text: [String, Number],
+        max: [String, Number],
+    },
+    computed: {
+        renderText() {
+            const text = Number(this.text)
+            const max = Number(this.max)
+            if (Number.isNaN(text) || Number.isNaN(max)) return this.text
+            return text <= max ? text : `${max}+`
+        },
+    },
 };
 </script>
 
