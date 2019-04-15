@@ -1,6 +1,6 @@
 <script>
 /**
- * vp-countup
+ * countup
  * @module components/countup
  * @desc countup.js(v2版，与v1版本有较大出入，具体参见其源码)的封装组件
  * @param {string} [tag] 可选，要展示的元素，默认span
@@ -10,7 +10,7 @@
  * @param {number} [decimals] 可选，保留小数位数
  * @param {number} [duration] 可选，持续时间
  * @example
- *  <vp-countup
+ *  <countup
         tag="div"
         :start-val="1"
         :end-val="1388"
@@ -18,7 +18,7 @@
         class="demo-count"
     />
     <br>
-    <vp-countup
+    <countup
         :end-val="88.88"
         :duration="3"
         :decimals="2"

@@ -1,6 +1,6 @@
 {
   "name": "a-pei",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "A Vue.js project",
   "author": "Randall <randall@duomai.com>",
   "main": "lib/index.js",
