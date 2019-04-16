@@ -1,7 +1,20 @@
 {
     "index": "./src/index.js",
     "badge": "./src/components/badge",
-    "button": "./src/components/v-button",
     "countup": "./src/components/countup",
-    "input": "./src/components/v-input"
+    "grid": "./src/components/grid",
+    "grid-item": "./src/components/grid-item",
+    "group": "./src/components/group",
+    "group-title": "./src/components/group-title",
+    "icon": "./src/components/icon",
+    "inline-desc": "./src/components/inline-desc",
+    "inline-v-switch": "./src/components/inline-v-switch",
+    "loading": "./src/components/loading",
+    "popup": "./src/components/popup",
+    "swiper": "./src/components/swiper",
+    "swiper-item": "./src/components/swiper-item",
+    "toast": "./src/components/toast",
+    "v-button": "./src/components/v-button",
+    "v-input": "./src/components/v-input",
+    "v-switch": "./src/components/v-switch"
 }

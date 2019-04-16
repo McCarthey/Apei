@@ -44,7 +44,7 @@ export default {
         transition: String,
         width: {
             type: String,
-            default: "7.6em"
+            default: "152px"
         },
         isShowMask: {
             type: Boolean,
@@ -89,7 +89,7 @@ export default {
         },
         style() {
             if (this.type === "text" && this.width === "auto") {
-                return { padding: "10px" };
+                return { padding: "30px" };
             }
         }
     },
@@ -158,16 +158,16 @@ export default {
 		color: #f76260;
 	}
 	.vbase-toast.vbase-toast_forbidden .vbase-toast__content {
-		margin-top: 10px;
+		margin-top: 30px;
 	}
 	.vbase-toast.vbase-toast_text {
 		min-height: 0;
 	}
 	.vbase-toast_text .vbase-toast__content {
 		margin: 0;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		border-radius: 15px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		border-radius: 45px;
 	}
 	.vbase-toast__content {
 		font-size: @toast-content-font-size;

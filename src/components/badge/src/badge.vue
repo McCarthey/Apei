@@ -38,20 +38,20 @@ export default {
 		text-align: center;
 		background: @badge-bg-color;
 		color: #fff;
-		font-size: 12px;
-		height: 16px;
-		line-height: 16px;
-		border-radius: 8px;
-		padding: 0 6px;
+		font-size: 34px;
+		height: 46px;
+		line-height: 46px;
+		border-radius: 23px;
+		padding: 0 18px;
 		background-clip: padding-box;
 		vertical-align: middle;
 	}
 	.vvpay-badge-single {
 		padding: 0;
-		width: 16px;
+		width: 46px;
 	}
 	.vvpay-badge-dot {
 		height: auto;
-		padding: 5px;
+		padding: 14px;
 	}
 </style>

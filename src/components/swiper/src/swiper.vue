@@ -246,19 +246,19 @@ export default {
 		> .@{pre}-indicator,
 		.@{pre}-indicator-right {
 			position: absolute;
-			right: 15px;
-			bottom: 10px;
+			right: 45px;
+			bottom: 30px;
 
 			> a {
 				float: left;
-				margin-left: 6px;
+				margin-left: 18px;
 
 				> .@{pre}-icon-dot {
 					display: inline-block;
 					vertical-align: middle;
-					width: 6px;
-					height: 6px;
-					border-radius: 3px;
+					width: 18px;
+					height: 18px;
+					border-radius: 9px;
 					background-color: #d0cdd1;
 				}
 				> .@{pre}-icon-dot.active {
@@ -273,7 +273,7 @@ export default {
 		}
 
 		> .@{pre}-indicator-left {
-			left: 15px;
+			left: 45px;
 			right: auto;
 		}
 
@@ -306,9 +306,9 @@ export default {
 						left: 0;
 						right: 0;
 						bottom: 0;
-						height: 1.4em;
-						font-size: 16px;
-						padding: 20px 50px 12px 13px;
+						height: 42px;
+						font-size: 48px;
+						padding: 60px 150px 36px 39px;
 						margin: 0;
 						background-image: linear-gradient(
 							to bottom,
@@ -316,7 +316,7 @@ export default {
 							rgba(0, 0, 0, 0.7) 100%
 						);
 						color: #fff;
-						text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+						text-shadow: 0 3px 0 rgba(0, 0, 0, 0.5);
 						overflow: hidden;
 						text-overflow: ellipsis;
 						white-space: nowrap;

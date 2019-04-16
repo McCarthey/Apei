@@ -1,34 +1,39 @@
-
-import Badge from './components/badge'
-import VButton from "./components/v-button";
-import VInput from "./components/v-input"
-import Countup from './components/countup'
-import Group from "./components/group";
-import VSwitch from "./components/v-switch";
-import InlineVSwitch from "./components/inline-v-switch";
-import Loading from "./components/loading";
-import Popup from "./components/popup";
-import GroupTitle from "./components/group-title";
-import Grid from "./components/grid";
-import GridItem from "./components/grid-item";
-import Swiper from "./components/swiper";
-import SwiperItem from "./components/swiper-item";
+import Badge from "./components/badge/index.js";
+import Countup from "./components/countup/index.js";
+import Grid from "./components/grid/index.js";
+import GridItem from "./components/grid-item/index.js";
+import Group from "./components/group/index.js";
+import GroupTitle from "./components/group-title/index.js";
+import Icon from "./components/icon/index.js";
+import InlineDesc from "./components/inline-desc/index.js";
+import InlineVSwitch from "./components/inline-v-switch/index.js";
+import Loading from "./components/loading/index.js";
+import Popup from "./components/popup/index.js";
+import Swiper from "./components/swiper/index.js";
+import SwiperItem from "./components/swiper-item/index.js";
+import Toast from "./components/toast/index.js";
+import VButton from "./components/v-button/index.js";
+import VInput from "./components/v-input/index.js";
+import VSwitch from "./components/v-switch/index.js";
 
 const Components = {
     Badge,
-    VButton,
-    VInput,
     Countup,
+    Grid,
+    GridItem,
     Group,
-    VSwitch,
+    GroupTitle,
+    Icon,
+    InlineDesc,
     InlineVSwitch,
     Loading,
     Popup,
-    GroupTitle,
-    Grid,
-    GridItem,
     Swiper,
-    SwiperItem
+    SwiperItem,
+    Toast,
+    VButton,
+    VInput,
+    VSwitch
 };
 
 const install = function (Vue) {
@@ -44,17 +49,20 @@ if (typeof window !== "undefined" && window.Vue) {
 export default {
     install,
     Badge,
-    VButton,
-    VInput,
     Countup,
+    Grid,
+    GridItem,
     Group,
-    VSwitch,
+    GroupTitle,
+    Icon,
+    InlineDesc,
     InlineVSwitch,
     Loading,
     Popup,
-    GroupTitle,
-    Grid,
-    GridItem,
     Swiper,
-    SwiperItem
+    SwiperItem,
+    Toast,
+    VButton,
+    VInput,
+    VSwitch
 };

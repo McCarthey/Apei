@@ -3,16 +3,17 @@
 .vbase-btn {
 	position       : relative;
 	display        : block;
+	height         : 120px;
+	line-height    : 1;
 	margin-left    : auto;
 	margin-right   : auto;
-	padding-left   : 14px;
-	padding-right  : 14px;
+	padding-left   : 42px;
+	padding-right  : 42px;
 	box-sizing     : border-box;
 	font-size      : @vbaseBtnFontSize;
 	text-align     : center;
 	text-decoration: none;
 	color          : @vbaseBtnFontColor;
-	line-height    : unit(@vbaseBtnHeight/@vbaseBtnFontSize);
 	border-radius  : @vbaseBtnBorderRadius;
 	.setTapColor();
 	overflow: hidden;
@@ -24,7 +25,7 @@
 		position        : absolute;
 		top             : 0;
 		left            : 0;
-		border          : 1px solid #415FFF;
+		border          : 3px solid #415FFF;
 		transform       : scale(.5);
 		transform-origin: 0 0;
 		box-sizing      : border-box;

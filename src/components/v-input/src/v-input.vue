@@ -674,14 +674,14 @@ export default {
 		text-align: center;
 	}
 	.vvpay-x-input .vvpay-input-icon {
-		font-size: 21px;
+		font-size: 63px;
 	}
 	.vvpay-input-icon.vbase-icon-warn:before,
 	.vvpay-input-icon.vbase-icon-success:before {
-		font-size: 21px;
+		font-size: 63px;
 	}
 	.vvpay-x-input .vbase-icon {
-		padding-left: 5px;
+		padding-left: 15px;
 	}
 	.vvpay-x-input.vbase-cell_vcode {
 		padding-top: 0;
@@ -696,7 +696,7 @@ export default {
 		}
 	}
 	.vvpay-x-input-right-full {
-		margin-left: 5px;
+		margin-left: 15px;
 		height: @vbaseCellHeight;
 		vertical-align: middle;
 		& img {

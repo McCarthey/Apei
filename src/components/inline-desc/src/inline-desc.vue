@@ -10,7 +10,7 @@ export default {
 
 <style>
 	.vvpay-label-desc {
-		font-size: 14px;
+		font-size: 42px;
 		color: #666;
 	}
 </style>

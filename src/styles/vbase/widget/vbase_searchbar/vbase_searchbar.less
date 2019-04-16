@@ -2,7 +2,7 @@
 
 .vbase-search-bar {
 	position        : relative;
-	padding         : 8px 10px;
+	padding         : 24px 30px;
 	display         : flex;
 	box-sizing      : border-box;
 	background-color: @search-bg-color;
@@ -40,8 +40,8 @@
 		height          : 200%;
 		transform       : scale(.5);
 		transform-origin: 0 0;
-		border-radius   : 10px;
-		border          : 1px solid #E6E6EA;
+		border-radius   : 30px;
+		border          : 3px solid #E6E6EA;
 		box-sizing      : border-box;
 		background      : #FFFFFF;
 	}
@@ -49,20 +49,20 @@
 
 .vbase-search-bar__box {
 	position     : relative;
-	padding-left : 30px;
-	padding-right: 30px;
+	padding-left : 90px;
+	padding-right: 90px;
 	height       : 100%;
 	width        : 100%;
 	box-sizing   : border-box;
 	z-index      : 1;
 
 	.vbase-search-bar__input {
-		padding    : 4px 0;
+		padding    : 12px 0;
 		width      : 100%;
-		height     : 20/14em;
+		height     : 36px;
 		border     : 0;
-		font-size  : 14px;
-		line-height: 20/14em;
+		font-size  : 42px;
+		line-height: 36px;
 		box-sizing : content-box;
 		background : transparent;
 
@@ -73,47 +73,47 @@
 
 	.vbase-icon-search {
 		position   : absolute;
-		left       : 10px;
+		left       : 30px;
 		top        : 0;
-		line-height: 28px;
+		line-height: 84px;
 	}
 
 	.vbase-icon-clear {
 		position   : absolute;
 		top        : 0;
 		right      : 0;
-		padding    : 0 10px;
-		line-height: 28px;
+		padding    : 0 30px;
+		line-height: 84px;
 	}
 }
 
 .vbase-search-bar__label {
 	position     : absolute;
-	top          : 1px;
-	right        : 1px;
-	bottom       : 1px;
-	left         : 1px;
+	top          : 3px;
+	right        : 3px;
+	bottom       : 3px;
+	left         : 3px;
 	z-index      : 2;
-	border-radius: 3px;
+	border-radius: 9px;
 	text-align   : center;
 	color        : @search-placeholder-font-color;
 	background   : #FFFFFF;
 
 	span {
 		display       : inline-block;
-		font-size     : 14px;
+		font-size     : 42px;
 		vertical-align: middle;
 	}
 
 	.vbase-icon-search {
-		margin-right: 5px;
+		margin-right: 15px;
 	}
 }
 
 .vbase-search-bar__cancel-btn {
 	display    : none;
-	margin-left: 10px;
-	line-height: 28px;
+	margin-left: 30px;
+	line-height: 84px;
 	color      : @search-cancel-font-color;
 	white-space: nowrap;
 }

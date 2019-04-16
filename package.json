@@ -46,6 +46,7 @@
     "copy-webpack-plugin": "^5.0.2",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.0",
+    "postcss-pxtorem": "^4.0.1",
     "eslint": "^5.16.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.2",

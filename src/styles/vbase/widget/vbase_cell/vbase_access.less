@@ -9,7 +9,7 @@
 	}
 
 	.vbase-cell__ft {
-		padding-right: 13px;
+		padding-right: 39px;
 		position     : relative;
 
 		&:after {
@@ -17,15 +17,15 @@
 			.setArrow(right, @cell-default-arrow-width, @cell-default-arrow-color, @cell-default-arrow-border-width);
 			position  : absolute;
 			top       : 50%;
-			margin-top: -4px;
-			right     : 2px;
+			margin-top: -12px;
+			right     : 6px;
 		}
 	}
 }
 
 .vbase-cell_link {
 	color    : @vbaseLinkColorDefault;
-	font-size: 14px;
+	font-size: 42px;
 
 	// 由于vbase-cell:first-child的:before为隐藏，所以这里要重新显示出来
 	&.vbase-cell   :first-child {
@@ -36,7 +36,7 @@
 }
 
 .vbase-cell_access.vvpay-cell-box {
-	padding-right: 13px;
+	padding-right: 39px;
 	position     : relative;
 
 	&:after {
@@ -44,7 +44,7 @@
 		.setArrow(right, @cell-default-arrow-width, @cell-default-arrow-color, @cell-default-arrow-border-width);
 		position  : absolute;
 		top       : 50%;
-		margin-top: -4px;
-		right     : 17px;
+		margin-top: -12px;
+		right     : 51px;
 	}
 }

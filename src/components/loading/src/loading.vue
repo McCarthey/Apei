@@ -11,7 +11,7 @@
                     position: position
                 }"
             >
-                <!-- <i class="vbase-loading vbase-icon_toast"></i> -->
+                <div class="vvpay-loading-image"></div>
                 <p class="vbase-toast__content vvpay__content">
                     {{ text || "加载中" }}<span class="vvpay-loading-text-dot" v-if="!text">···</span>
                 </p>
@@ -54,17 +54,18 @@ export default {
 	@import "../../../styles/vbase/widget/vbase-loading/vbase-loading.less";
 
 	.vvpay-loading .vbase-toast {
-        width: 9.6em;
+        width: 396px;
         top: 40%;
         z-index: @loading-z-index;
-	}
-	.vbase-icon_toast.vbase-loading {
-		margin: 30px 0 0;
-		width: 38px;
-		height: 38px;
-		vertical-align: baseline;
-		display: inline-block;
-	}
+    }
+    .vvpay-loading .vvpay-loading-image{
+        width: 300px;
+        height: 60px;
+        margin-top: 40px;
+        margin-left: 48px;
+        background: url('../../../styles/vbase/icon/vivo钱包.png') center no-repeat;
+        background-size: 100%;
+    }
 	.vvpay-mask-enter,
 	.vvpay-mask-leave-active,
 	.vvpay-mask-leave-active,
@@ -81,17 +82,18 @@ export default {
 		transition: opacity 300ms;
 	}
 	.vvpay-loading .vbase-toast {
-        min-height: 60px;
-        border-radius: 8px;
+        min-height: 180px;
+        border-radius: 24px;
     }
     .vbase-loading_toast .vbase-toast__content{
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 10px 0 0 0;
+        font-size: 42px;
     }
     .vvpay-loading-text-dot{
-        font-size: 20px;
-        margin-left: 3px;
+        font-size: 60px;
+        margin-left: 9px;
     }
 </style>

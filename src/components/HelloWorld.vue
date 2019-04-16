@@ -170,6 +170,9 @@ export default {
 
 <style lang="less">
 @import "../styles/reset.less";
+h1 {
+    font-size: 64px;
+}
 h3 {
   margin: 40px 0 0;
 }
@@ -186,7 +189,7 @@ a {
 }
 .demo-count {
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-  font-size: 6em;
+  font-size: 32px;
   color: #415fff;
 }
 .position-vertical-demo {

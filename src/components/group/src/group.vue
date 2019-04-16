@@ -72,7 +72,7 @@ export default {
 		margin-top: @group-footer-title-margin-top;
 		margin-bottom: @group-footer-title-margin-bottom;
 		padding-top: 0;
-		font-size: 12px;
+		font-size: 36px;
 	}
 
 	/* global config for group items */

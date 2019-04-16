@@ -13,24 +13,24 @@
 .vbase-switch,
 .vbase-switch-cp__box {
 	position        : relative;
-	width           : 58px;
+	width           : 126px;
 	height          : @vbaseSwitchHeight;
-	border          : 1px solid #DFDFDF;
+	border          : 3px solid #DFDFDF;
 	outline         : 0;
-	border-radius   : 16px;
+	border-radius   : 66px;
 	box-sizing      : border-box;
 	background-color: #DFDFDF;
 	transition      : background-color .1s, border .1s;
-	transform       : perspective(8px) rotateX(180deg) rotateY(-2deg) translateZ(0);
+	transform       : perspective(20px) rotateX(180deg) rotateY(-2deg) translateZ(0);
 
 	&:before {
 		content         : " ";
 		position        : absolute;
 		top             : 0;
 		left            : 0;
-		width           : 56px;
-		height          : @vbaseSwitchHeight - 2;
-		border-radius   : 15px;
+		width           : 120px;
+		height          : @vbaseSwitchHeight - 6;
+		border-radius   : 60px;
 		background-color: #FDFDFD;
 		transition      : transform .30s cubic-bezier(0.45, 1, 0.4, 1);
 	}
@@ -40,11 +40,11 @@
 		position        : absolute;
 		top             : 0;
 		left            : 0;
-		width           : @vbaseSwitchHeight - 2;
-		height          : @vbaseSwitchHeight - 2;
-		border-radius   : 15px;
+		width           : @vbaseSwitchHeight - 6;
+		height          : @vbaseSwitchHeight - 6;
+		border-radius   : 45px;
 		background-color: #FFFFFF;
-		box-shadow      : 0 -1px 3px rgba(0, 0, 0, 0.4);
+		box-shadow      : 0 -3px 8px rgba(0, 0, 0, 0.4);
 		transition      : transform .5s cubic-bezier(0.4, 0.4, 0.25, 1.35);
 	}
 }
@@ -54,7 +54,7 @@
 	/** vvpay **/
 	border-color    : @switch-checked-border-color;
 	background-color: @switch-checked-bg-color;
-	transform       : perspective(8px) rotateX(0deg) rotateY(-2deg) translateZ(0);
+	transform       : perspective(20px) rotateX(0deg) rotateY(-2deg) translateZ(0);
 
 	/** end vvpay **/
 	&:before {
@@ -62,7 +62,7 @@
 	}
 
 	&:after {
-		transform: translateX(26px);
+		transform: translateX(62px);
 	}
 }
 
