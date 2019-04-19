@@ -8,7 +8,7 @@ const baseWebpackConfig = require("./webpack.base.conf");
 // const CopyWebpackPlugin = require('copy-webpack-plugin')
 // const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-// const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 // const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const env =
@@ -46,8 +46,13 @@ const webpackConfig = merge(baseWebpackConfig, {
       "process.env": env
     }),
     new MiniCssExtractPlugin({
-        filename: '/theme/[name].css'
+      filename: '/theme/[name].css'
     }),
+    new OptimizeCSSPlugin({
+      cssProcessorPluginOptions: {
+        preset: ['default', { discardComments: { removeAll: true } }],
+      },
+    })
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     // new OptimizeCSSPlugin({
