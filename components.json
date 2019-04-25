@@ -16,5 +16,6 @@
     "toast": "./src/components/toast",
     "v-button": "./src/components/v-button",
     "v-input": "./src/components/v-input",
-    "v-switch": "./src/components/v-switch"
+    "v-switch": "./src/components/v-switch",
+    "throttle": "./src/tools/throttle"
 }
