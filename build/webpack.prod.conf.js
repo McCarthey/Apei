@@ -36,7 +36,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
     path: config.build.assetsRoot,
-    filename: "[name].js",
+    filename: "[name]/index.js",
     library: "a-pei",
     libraryTarget: "umd"
   },
@@ -46,7 +46,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       "process.env": env
     }),
     new MiniCssExtractPlugin({
-      filename: '/theme/[name].css'
+      filename: '/[name]/style.css'
     }),
     // new OptimizeCSSPlugin({
     //   cssProcessorPluginOptions: {
